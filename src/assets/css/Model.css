@@ -60,3 +60,28 @@
     font-size: 20px;
     cursor: pointer;
   }
+
+
+
+  /* Ensure the form is centered and has a fixed width */
+.centered-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden; /* Prevent scrolling */
+}
+
+/* Style the form itself */
+.create-invoice-wrap {
+  width: 100%; /* Take up full width of the container */
+  max-width: 900px; /* Maximum width to prevent it from expanding too much */
+  padding: 20px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+/* Optional: Make sure the wrapper does not overflow */
+.hk-pg-body {
+  overflow: hidden;
+}

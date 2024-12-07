@@ -10,23 +10,22 @@ function SubtotalTable() {
       discountType: "1", // 1 for %, 2 for ₹
     },
   ]);
+
   const handleAddItem = () => {
     setItems([
       ...items,
       {
         itemName: "",
-        quantity: 0,  
-        price: 0.0,   
+        quantity: 0,
+        price: 0.0,
         discount: 0,
         discountType: "1",
       },
     ]);
   };
 
-  // Handle input changes for each item
   const handleItemChange = (index, field, value) => {
     const newItems = [...items];
-    // Ensure that numbers are parsed properly and invalid inputs are treated as 0
     newItems[index][field] =
       field === "price" || field === "quantity" || field === "discount"
         ? parseFloat(value) || 0
@@ -34,7 +33,6 @@ function SubtotalTable() {
     setItems(newItems);
   };
 
-  // Handle removing an item
   const handleRemoveItem = (index) => {
     const newItems = items.filter((_, i) => i !== index);
     setItems(newItems);
@@ -42,27 +40,27 @@ function SubtotalTable() {
 
   return (
     <div className="mt-5">
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto max-w-full">
         <div className="inline-block min-w-full shadow-md rounded-lg">
-          <table className="min-w-full divide-y divide-gray-200">
+          <table className="min-w-full divide-y divide-gray-200 table-auto">
             <thead className="bg-gray-100">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Item
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Quantity
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Price
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Discount
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Discount Type
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Amount
                 </th>
               </tr>
@@ -70,7 +68,7 @@ function SubtotalTable() {
             <tbody className="bg-white divide-y divide-gray-200">
               {items.map((item, index) => (
                 <tr key={index}>
-                  <td className="px-6 py-4">
+                  <td className="px-4 py-4">
                     <input
                       type="text"
                       className="w-full border rounded px-2 py-1"
@@ -78,7 +76,7 @@ function SubtotalTable() {
                       onChange={(e) => handleItemChange(index, "itemName", e.target.value)}
                     />
                   </td>
-                  <td className="px-6 py-4">
+                  <td className="px-4 py-4">
                     <input
                       type="number"
                       className="w-full border rounded px-2 py-1"
@@ -86,7 +84,7 @@ function SubtotalTable() {
                       onChange={(e) => handleItemChange(index, "quantity", e.target.value)}
                     />
                   </td>
-                  <td className="px-6 py-4">
+                  <td className="px-4 py-4">
                     <input
                       type="number"
                       className="w-full border rounded px-2 py-1"
@@ -94,7 +92,7 @@ function SubtotalTable() {
                       onChange={(e) => handleItemChange(index, "price", e.target.value)}
                     />
                   </td>
-                  <td className="px-6 py-4">
+                  <td className="px-4 py-4">
                     <input
                       type="number"
                       className="w-full border rounded px-2 py-1"
@@ -102,7 +100,7 @@ function SubtotalTable() {
                       onChange={(e) => handleItemChange(index, "discount", e.target.value)}
                     />
                   </td>
-                  <td className="px-6 py-4">
+                  <td className="px-4 py-4">
                     <select
                       className="w-full border rounded px-2 py-1"
                       value={item.discountType}
@@ -112,7 +110,7 @@ function SubtotalTable() {
                       <option value="2">₹</option>
                     </select>
                   </td>
-                  <td className="px-6 py-4 flex items-center">
+                  <td className="px-4 py-4 flex items-center">
                     <input
                       type="text"
                       className="w-full border rounded px-2 py-1 bg-gray-100"

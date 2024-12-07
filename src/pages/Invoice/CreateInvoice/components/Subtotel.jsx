@@ -20,7 +20,7 @@ const InvoiceSubTable = () => {
 
   return (
     <div className="row justify-content-end">
-      <div className="col-xxl-6 mt-5">
+      <div className="col-xxl-8 mt-5">
         <div className="table-wrap">
           <div className="table-responsive">
             <table className="table table-bordered subtotal-table">

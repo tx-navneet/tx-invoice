@@ -2,6 +2,7 @@ import { useState } from 'react';
 import '../../assets/css/Model.css';
 import { MdClose, MdDelete } from 'react-icons/md';
 import { IoCheckmarkDoneCircleSharp } from 'react-icons/io5';
+import React from 'react';
 
 // eslint-disable-next-line react/prop-types
 const AddClientModal = ({ showModal, handleCloseModal }) => {

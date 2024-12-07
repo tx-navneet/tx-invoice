@@ -39,7 +39,7 @@ const AddNote = () => {
             maxLength={1400} // Limiting input length
           ></textarea>
           <button
-            className="btn btn-outline-light mt-2"
+            className="btn btn-dark mt-2"
             onClick={handleAddNote}
           >
             Add Note

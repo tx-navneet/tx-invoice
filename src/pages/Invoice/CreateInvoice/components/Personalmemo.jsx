@@ -2,12 +2,9 @@ import React, { useState } from 'react';
 
 function PersonalMemo() {
   const [memo, setMemo] = useState('');
-  const [showModel, setShowModel] = useState(false);
   const MAX_CHARACTERS = 1400;
 
-  const handleShowMemo = () => {
-    setShowModel(!showModel);
-  };
+ 
 
   const handleMemoChange = (event) => {
     setMemo(event.target.value);
@@ -20,16 +17,8 @@ function PersonalMemo() {
 
   return (
     <>
-      <div className="my-2">
-        <button
-          className="d-inline-flex align-items-center text-[#007D88]"
-          onClick={handleShowMemo}
-        >
-          <i className="ri-add-box-line me-1"></i> Add a personal memo
-        </button>
-      </div>
+    
 
-      {showModel && (
         <div className="form-group">
           <div className="form-label-group">
             <label className="form-label">Personal Memo</label>
@@ -46,13 +35,13 @@ function PersonalMemo() {
             maxLength={MAX_CHARACTERS}
           />
           <button
-            className="btn btn-outline-light mt-2"
+            className="btn btn-dark mt-2"
             onChange={handleAddNote}
           >
             Add Note
           </button>
         </div>
-      )}
+    
     </>
   );
 }
