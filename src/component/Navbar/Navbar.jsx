@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Responsivecontext } from '../../context/HeaderContext';
-import UserModel from '../Model/UserModel';
+import AccountMenu from '../Avtar/LoginAvatar';
 
 const Navbar = () => {
   const { handleClick } = useContext(Responsivecontext);
@@ -12,10 +12,12 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="p-4 ml-2 border-b border-gray-300">
+      <div className="p-4 ml-2 border-b-[1px] border-gray-300">
         <div className="flex justify-between items-center w-full sm:flex-col flex-row">
           <div className="boxOne lg:block hidden">
-            <span className="text-black text-2xl font-semibold">TX INVOICE</span>
+            <span className="text-black text-2xl font-semibold">
+              TX INVOICE
+            </span>
           </div>
 
           <div className="boxTwo lg:hidden">
@@ -39,18 +41,19 @@ const Navbar = () => {
       {showUser && (
         <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white p-4 rounded-lg shadow-lg w-72">
-            <UserModel />
+            {/* <UserModel />
             <button
               onClick={handleToggle}
               className="absolute top-2 right-2 text-gray-500 text-xl"
             >
               &#10006;
-            </button>
+            </button> */}
+            <AccountMenu />
           </div>
         </div>
       )}
 
-      <div className="w-full h-[1px] bg-gray-200"></div>
+      {/* <div className="w-full h-[1px] bg-gray-200"></div> */}
     </>
   );
 };

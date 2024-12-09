@@ -5,11 +5,11 @@ const ShipToForm = () => {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [formData, setFormData] = useState({
     businessName: '',
-    address: '',
-    city: '',
-    postalCode: '',
-    state: '',
-    country: '',
+    bankName: '',
+    accNumber: '',
+    branchIfsc: '',
+    swiftCode: '',
+    ibanNumber: '',
     gstin: '',
   });
 
@@ -23,12 +23,10 @@ const ShipToForm = () => {
     setFormData({ ...formData, [name]: value });
   };
 
- 
-
   return (
     <div className="col-xxl-4 offset-xxl-5">
       <div className="d-flex justify-between items-center">
-        <h6 className="font-bold ">Ship To</h6>
+        <h6 className="font-bold ">Our Bank Details</h6>
 
         {isFormVisible && (
           <span
@@ -57,9 +55,9 @@ const ShipToForm = () => {
               <div className="col-sm-12 mb-3">
                 <input
                   className="form-control"
-                  placeholder="Address"
+                  placeholder="Bank Name"
                   type="text"
-                  name="address"
+                  name="bankName"
                   value={formData.address}
                   onChange={handleChange}
                 />
@@ -67,9 +65,9 @@ const ShipToForm = () => {
               <div className="col-lg-6 mb-3">
                 <input
                   className="form-control"
-                  placeholder="City"
+                  placeholder="Account Number"
                   type="text"
-                  name="city"
+                  name="accNumber"
                   value={formData.city}
                   onChange={handleChange}
                 />
@@ -77,30 +75,30 @@ const ShipToForm = () => {
               <div className="col-lg-6 mb-3">
                 <input
                   className="form-control"
-                  placeholder="Postal Code"
+                  placeholder="Bank Branch/IFSC Code"
                   type="text"
-                  name="postalCode"
-                  value={formData.postalCode}
+                  name="branchIfsc"
+                  value={formData.branchIfsc}
                   onChange={handleChange}
                 />
               </div>
               <div className="col-sm-12 mb-3">
                 <input
                   className="form-control"
-                  placeholder="State"
+                  placeholder="Swift Code"
                   type="text"
-                  name="state"
-                  value={formData.state}
+                  name="swiftCode"
+                  value={formData.swiftCode}
                   onChange={handleChange}
                 />
               </div>
               <div className="col-sm-12 mb-3">
                 <input
                   className="form-control"
-                  placeholder="Country"
+                  placeholder="IBAN"
                   type="text"
-                  name="country"
-                  value={formData.country}
+                  name="ibanNumber"
+                  value={formData.ibanNumber}
                   onChange={handleChange}
                 />
               </div>

@@ -1,46 +1,60 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { navLinks } from '../../utils/ExternalData/Data';
-import { IoIosArrowDown } from 'react-icons/io';
+import { IoIosArrowDown, IoIosArrowForward } from 'react-icons/io';
 import DropDown from '../Model/DropDown';
 import { Responsivecontext } from '../../context/HeaderContext';
 
 const Header = () => {
-  const { showSidebar } = useContext(Responsivecontext); // Access showSidebar state
+  const { showSidebar } = useContext(Responsivecontext);
   const location = useLocation();
-  const [openDropdown, setOpenDropdown] = useState(null); // Track currently open dropdown
-  const dropdownRef = useRef(null); // Reference to the dropdown menu
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const [openNestedDropdown, setOpenNestedDropdown] = useState(false); // State for nested dropdown
+  const dropdownRef = useRef(null);
+  const nestedDropdownRef = useRef(null);
 
   const linksWithDownArrow = ['Invoices', 'Scrumboard', 'Todo', 'Contacts'];
 
   const toggleDropdown = (linkName) => {
-    setOpenDropdown(openDropdown === linkName ? null : linkName);
-  };
-
-  const handleClickOutside = (e) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-      setOpenDropdown(null); // Close dropdown if click is outside
+    if (linksWithDownArrow.includes(linkName)) {
+      setOpenDropdown(openDropdown === linkName ? null : linkName);
+    } else {
+      setOpenDropdown(null);
     }
   };
 
-  // Add event listener for clicks outside when dropdown is open
+  const toggleNestedDropdown = () => {
+    setOpenNestedDropdown(!openNestedDropdown);
+  };
+
+  const handleClickOutside = (e) => {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(e.target) &&
+      (!nestedDropdownRef.current || !nestedDropdownRef.current.contains(e.target))
+    ) {
+      setOpenDropdown(null);
+      setOpenNestedDropdown(false);
+    }
+  };
+
   useEffect(() => {
-    if (openDropdown) {
+    if (openDropdown || openNestedDropdown) {
       document.addEventListener('mousedown', handleClickOutside);
     } else {
       document.removeEventListener('mousedown', handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside); // Clean up on unmount
+      document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [openDropdown]);
+  }, [openDropdown, openNestedDropdown]);
 
   return (
     <header
       className={`lg:flex ${
         showSidebar ? 'block' : 'hidden'
-      } border-b-2 border-gray-500 py-3 relative`}
+      } border-b-[1px] border-gray-300 py-3 relative`}
     >
       <div className="w-full">
         <nav className="flex justify-start items-center flex-wrap gap-6">
@@ -61,13 +75,51 @@ const Header = () => {
                   {linksWithDownArrow.includes(link.name) && <IoIosArrowDown />}
                 </div>
 
-                {/* Dropdown Menu */}
-                {openDropdown === link.name && (
+                {/* Parent Dropdown Menu */}
+                {openDropdown === link.name && linksWithDownArrow.includes(link.name) && (
                   <div
-                    ref={dropdownRef} // Attach ref to the dropdown
-                    className="absolute top-[50px] left-0 z-50"
+                    ref={dropdownRef}
+                    className="absolute top-[50px] left-0 z-50 bg-white shadow rounded-md p-2"
                   >
-                    <DropDown linkName={link.name} />
+                    {link.name === 'Invoices' ? (
+                      <ul>
+                        <li
+                          className="flex justify-between items-center cursor-pointer py-1 px-3 hover:bg-gray-100"
+                          onClick={toggleNestedDropdown}
+                        >
+                          Create Invoice
+                          <IoIosArrowForward />
+                        </li>
+
+                        {/* Nested Dropdown */}
+                        {openNestedDropdown && (
+                          <ul
+                            ref={nestedDropdownRef}
+                            className="absolute left-full top-0 bg-white shadow rounded-md p-2"
+                          >
+                            <li className="py-1 px-3 hover:bg-gray-100 cursor-pointer">
+                              Performa Invoice
+                            </li>
+                            <li className="py-1 px-3 hover:bg-gray-100 cursor-pointer">
+                              Tax Invoice
+                            </li>
+                            <li className="py-1 px-3 hover:bg-gray-100 cursor-pointer">
+                              Quote
+                            </li>
+                          </ul>
+                        )}
+
+                        {/* Rest of Invoice Dropdown */}
+                        <li className="py-1 px-3 hover:bg-gray-100 cursor-pointer">
+                          View Invoices
+                        </li>
+                        <li className="py-1 px-3 hover:bg-gray-100 cursor-pointer">
+                          Payment Status
+                        </li>
+                      </ul>
+                    ) : (
+                      <DropDown linkName={link.name} />
+                    )}
                   </div>
                 )}
               </li>
