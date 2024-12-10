@@ -80,14 +80,14 @@ const InvoiceTable = () => {
       <div className="container-fluid mx-auto p-4">
         {/* Search input and pagination */}
         <div className="flex justify-between items-center mb-4">
+          <button
+            type="button"
+            className="btn btn-outline-primary d-flex justify-center items-center gap-2"
+          >
+            <AiOutlineFilePdf className="text-[20px]" />
+            Export in PDF
+          </button>
           <div className="button d-flex gap-4">
-            <button
-              type="button"
-              className="btn btn-outline-primary d-flex justify-center items-center gap-2"
-            >
-              <AiOutlineFilePdf className="text-[20px]" />
-              Export in PDF
-            </button>
             <button
               type="button"
               className="btn btn-outline-success d-flex justify-center items-center gap-2"

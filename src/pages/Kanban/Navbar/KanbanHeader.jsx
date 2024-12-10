@@ -1,11 +1,11 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
-import { navLinks } from '../../utils/ExternalData/Data'; // Update this to include Scrumboard, Contacts, and Todo
 import { IoIosArrowDown } from 'react-icons/io';
-import { Responsivecontext } from '../../context/HeaderContext';
-import DropDown from './DropDown';
+import KanbanDropDown from './KanbarDropdown';
+import { navLinks } from '../../../utils/ExternalData/Data';
+import { Responsivecontext } from '../../../context/HeaderContext';
 
-const Header = () => {
+const KanbanHeader = () => {
   const { showSidebar } = useContext(Responsivecontext);
   const location = useLocation();
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -58,17 +58,14 @@ const Header = () => {
                 </div>
 
                 {/* Dropdown */}
-                {openDropdown === link.name && linksWithDropdown.includes(link.name) && (
-                  <div
-                    ref={dropdownRef}
-                    className=""
-                  >
-                    <div className="absolute top-[50px] ">
-                      
-                    <DropDown linkName={link.name} />
+                {openDropdown === link.name &&
+                  linksWithDropdown.includes(link.name) && (
+                    <div ref={dropdownRef} className="">
+                      <div className="absolute top-[50px] ">
+                        <KanbanDropDown linkName={link.name} />
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
               </li>
             ))}
           </ul>
@@ -78,4 +75,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default KanbanHeader;

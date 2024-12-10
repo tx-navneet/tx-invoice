@@ -5,16 +5,19 @@ import 'react-toastify/dist/ReactToastify.css';
 
 // Import components
 import Spinner from './component/Loader/Spinner';
-import Navbar from './component/Navbar/Navbar';
-import Header from './component/Navbar/Header';
 import { ResponsiveProvider } from './context/HeaderContext';
 import InvoiceTable from './pages/Invoice/CreateInvoice/components/InvoiceTable';
+import InventoryTable from './Ag-grids/InventoryTable';
+import Draggable from './pages/Kanban/Navbar/Drugs';
 
 // Lazy load other pages
 const Login = lazy(() => import('./pages/auth/Login/Login'));
 const SignUp = lazy(() => import('./pages/auth/signup/Signup'));
 const Home = lazy(() => import('./pages/Home/Home'));
-const CreateInvoice = lazy(() => import('./pages/Invoice/CreateInvoice/CreateInvoice'));
+const Dahsboard = lazy(() => import('./pages/Kanban/Dashboard/Dashboard'));
+const CreateInvoice = lazy(
+  () => import('./pages/Invoice/CreateInvoice/CreateInvoice')
+);
 
 const App = () => {
   return (
@@ -22,8 +25,8 @@ const App = () => {
       <BrowserRouter>
         {/* Suspense fallback with loading spinner for lazy-loaded components */}
         <Suspense fallback={<Spinner />}>
-          <Navbar />
-          <Header />
+          {/* <Navbar />
+          <Header /> */}
 
           {/* Define the Routes for different paths */}
           <Routes>
@@ -33,9 +36,12 @@ const App = () => {
             <Route path="/signup" element={<SignUp />} />
             <Route path="/create-invoice" element={<CreateInvoice />} />
             <Route path="/invoicetable" element={<InvoiceTable />} />
+            <Route path="/inventory" element={<InventoryTable />} />
+            <Route path="/dashboard" element={<Dahsboard />} />
+            <Route path="/drug" element={<Draggable />} />
           </Routes>
         </Suspense>
-        
+
         {/* Toast notifications container */}
         <ToastContainer />
       </BrowserRouter>
