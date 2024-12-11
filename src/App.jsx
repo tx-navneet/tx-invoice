@@ -8,7 +8,7 @@ import Spinner from './component/Loader/Spinner';
 import { ResponsiveProvider } from './context/HeaderContext';
 import InvoiceTable from './pages/Invoice/CreateInvoice/components/InvoiceTable';
 import InventoryTable from './Ag-grids/InventoryTable';
-import Draggable from './pages/Kanban/Navbar/Drugs';
+import Draggable from './pages/Kanban/components/Navbar/Drugs';
 
 // Lazy load other pages
 const Login = lazy(() => import('./pages/auth/Login/Login'));

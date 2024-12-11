@@ -1,0 +1,10 @@
+.taskboardapp-sidebar {
+    transition: transform 0.3s ease;  /* Slide effect */
+  }
+  
+  .taskboardapp-sidebar.sidebar-closed {
+    transform: translateX(-100%);  /* Slide the sidebar out of view */
+  }
+  .sidebar-closed{
+    display: none;
+  }

@@ -86564,6 +86564,7 @@ Project:	Jampack
     justify-content: space-between;
     -webkit-justify-content: space-between;
     -ms-flex-pack: space-between;
+
 }
 
 .hk-wrapper .hk-navbar .navbar-nav .nav-item .dropdown .dropdown-menu,
@@ -86858,7 +86859,7 @@ Project:	Jampack
     }
 
     .hk-wrapper[data-navbar-style="collapsed"][data-layout="horizontal"] .hk-pg-wrapper {
-        padding-top: 65px;
+        padding-top: 0px;
     }
 
     .hk-wrapper[data-navbar-style="collapsed"][data-layout="horizontal"][data-layout-style="default"] .hk-menu {
@@ -87890,7 +87891,7 @@ Project:	Jampack
     bottom: 0;
     width: 270px;
     margin-left: 0;
-    z-index: 1032;
+    z-index: 400;
     border-right: 1px solid #eaeaea;
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
