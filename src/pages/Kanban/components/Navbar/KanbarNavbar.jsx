@@ -115,6 +115,20 @@ const KanbarNavbar = () => {
                       SCSS
                     </a>
                   </div>
+
+
+                    <div className="div">
+                      <div className="number w-[200px]">
+                        <select name="" id=""></select>
+                      </div>
+                      <div className="input">
+                        <input type="text" />
+                      </div>
+                    </div>
+
+
+
+
                   <div className="dropdown-divider"></div>
                   <h6 className="dropdown-header">Help</h6>
                   <a href="javascript:void(0);" className="dropdown-item">

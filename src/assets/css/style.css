@@ -75700,7 +75700,7 @@ div.hopscotch-bubble .hopscotch-bubble-container .hopscotch-actions .btn-group-x
 .hk-pg-wrapper {
     padding: 65px 0 60px;
     position: relative;
-    min-height: 100vh;
+    height: 100vh;
 }
 
 
@@ -80193,7 +80193,6 @@ span[data-notify="icon"] {
     font: normal normal normal 22px/1 'Material-Design-Iconic-Font';
     text-rendering: auto;
     padding-left: .25rem;
-    speak: none;
     text-transform: none;
     text-rendering: auto;
     line-height: 1;
@@ -80347,7 +80346,6 @@ span[data-notify="icon"] {
     font: normal normal normal 22px/1 'Material-Design-Iconic-Font';
     text-rendering: auto;
     padding-left: .25rem;
-    speak: none;
     text-transform: none;
     text-rendering: auto;
     line-height: 1;
@@ -92993,11 +92991,11 @@ div.hopscotch-bubble .hopscotch-bubble-container .hopscotch-actions .emailapp-wr
 /*Taskboard*/
 
 .taskboardapp-wrap {
-    position: relative;
-    height: calc(100vh - 65px);
-    -webkit-transition: height 0.2s ease;
-    -moz-transition: height 0.2s ease;
-    transition: height 0.2s ease;
+  position: relative;
+  height: calc(100vh - 65px);
+  -webkit-transition: height 0.2s ease;
+  -moz-transition: height 0.2s ease;
+  transition: height 0.2s ease;
 }
 
 .taskboardapp-wrap .taskboardapp-sidebar {
@@ -97817,6 +97815,5 @@ div.hopscotch-bubble .hopscotch-bubble-container .hopscotch-actions .emailapp-wr
         height: calc(100vh - 65px);
     }
 }
-
 
 /*# sourceMappingURL=style.css.map */

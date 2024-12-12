@@ -9,6 +9,9 @@ import { ResponsiveProvider } from './context/HeaderContext';
 import InvoiceTable from './pages/Invoice/CreateInvoice/components/InvoiceTable';
 import InventoryTable from './Ag-grids/InventoryTable';
 import Draggable from './pages/Kanban/components/Navbar/Drugs';
+import 'jquery/dist/jquery.min.js'; // Have to install and import jQuery because of bootstrap modal's dependency
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 // Lazy load other pages
 const Login = lazy(() => import('./pages/auth/Login/Login'));
@@ -19,7 +22,12 @@ const CreateInvoice = lazy(
   () => import('./pages/Invoice/CreateInvoice/CreateInvoice')
 );
 
+
+
 const App = () => {
+
+  console.log("Navneet");
+  
   return (
     <ResponsiveProvider>
       <BrowserRouter>

@@ -1,8 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const KanbarDropdown = () => {
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  const toggleCollapse = () => {
+    setIsCollapsed(!isCollapsed);
+  };
   return (
     <div className="hk-menu">
+      <div className="menu-header d-xl-none">
+        <span>
+          <a className="navbar-brand" href="index.html">
+            <img
+              className="brand-img img-fluid"
+              src="dist/img/brand-sm.svg"
+              alt="brand"
+            />
+            <img
+              className="brand-img img-fluid"
+              src="dist/img/Jampack.svg"
+              alt="brand"
+            />
+          </a>
+          <button className="btn btn-icon btn-rounded btn-flush-dark flush-soft-hover navbar-toggle">
+            <span className="icon">
+              <span className="svg-icon fs-5">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="icon icon-tabler icon-tabler-arrow-bar-to-left"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  strokeWidth="2"
+                  stroke="currentColor"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                  <line x1="10" y1="12" x2="20" y2="12"></line>
+                  <line x1="10" y1="12" x2="14" y2="16"></line>
+                  <line x1="10" y1="12" x2="14" y2="8"></line>
+                  <line x1="4" y1="4" x2="4" y2="20"></line>
+                </svg>
+              </span>
+            </span>
+          </button>
+        </span>
+      </div>
       <div data-simplebar className="nicescroll-bar">
         <div className="menu-content-wrap">
           <div className="container-fluid menu-group">
@@ -41,7 +86,7 @@ const KanbarDropdown = () => {
               <li className="nav-item">
                 <a
                   className="nav-link"
-                  href="javascript:void(0);"
+                  href=""
                   data-bs-toggle="collapse"
                   data-bs-target="#dash_chat"
                 >
@@ -93,7 +138,7 @@ const KanbarDropdown = () => {
                       <li className="nav-item">
                         <a
                           className="nav-link"
-                          href="javascript:void(0);"
+                          href=""
                           data-bs-toggle="collapse"
                           data-bs-target="#dash_wizard"
                         >
@@ -153,7 +198,7 @@ const KanbarDropdown = () => {
               <li className="nav-item active">
                 <a
                   className="nav-link"
-                  href="javascript:void(0);"
+                  href=""
                   data-bs-toggle="collapse"
                   data-bs-target="#dash_scrumboard"
                 >
@@ -213,7 +258,7 @@ const KanbarDropdown = () => {
               <li className="nav-item">
                 <a
                   className="nav-link"
-                  href="javascript:void(0);"
+                  href=""
                   data-bs-toggle="collapse"
                   data-bs-target="#dash_contact"
                 >
@@ -266,42 +311,40 @@ const KanbarDropdown = () => {
                 </ul>
               </li>
               <li className="nav-item">
-                <a
-                  className="nav-link"
-                  href="javascript:void(0);"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#dash_task"
-                >
-                
-                  <span className="nav-link-text position-relative">
-                    Todo
-                    <span className="badge badge-danger badge-indicator position-absolute top-0 start-100"></span>
-                  </span>
-                </a>
-                <ul
-                  id="dash_task"
-                  className="nav flex-column collapse nav-children"
-                >
-                  <li className="nav-item">
-                    <ul className="nav flex-column">
-                      <li className="nav-item">
-                        <a className="nav-link" href="tasklist.html">
-                          <span className="nav-link-text">Tasklist</span>
-                        </a>
-                      </li>
-                      <li className="nav-item">
-                        <a className="nav-link" href="gantt.html">
-                          <span className="nav-link-text">Gantt</span>
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </li>
+      <a
+        className="nav-link"
+        href="#"
+        onClick={toggleCollapse}
+      >
+        <span className="nav-link-text position-relative">
+          Todo
+          <span className="badge badge-danger badge-indicator position-absolute top-0 start-100"></span>
+        </span>
+      </a>
+      <ul
+        id="dash_task"
+        className={`nav flex-column collapse nav-children ${isCollapsed ? 'show' : ''}`}
+      >
+        <li className="nav-item">
+          <ul className="nav flex-column">
+            <li className="nav-item">
+              <a className="nav-link" href="tasklist.html">
+                <span className="nav-link-text">Tasklist</span>
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="gantt.html">
+                <span className="nav-link-text">Gantt</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
               <li className="nav-item">
                 <a
                   className="nav-link"
-                  href="javascript:void(0);"
+                  href=""
                   data-bs-toggle="collapse"
                   data-bs-target="#dash_invoice"
                 >
@@ -393,7 +436,7 @@ const KanbarDropdown = () => {
               <li className="nav-item">
                 <a
                   className="nav-link"
-                  href="javascript:void(0);"
+                  href=""
                   data-bs-toggle="collapse"
                   data-bs-target="#dash_file"
                 >
@@ -454,7 +497,7 @@ const KanbarDropdown = () => {
               <li className="nav-item">
                 <a
                   className="nav-link"
-                  href="javascript:void(0);"
+                  href=""
                   data-bs-toggle="collapse"
                   data-bs-target="#dash_blog"
                 >
@@ -509,7 +552,7 @@ const KanbarDropdown = () => {
               <li className="nav-item">
                 <a
                   className="nav-link"
-                  href="javascript:void(0);"
+                  href=""
                   data-bs-toggle="collapse"
                   data-bs-target="#dash_integ"
                 >
@@ -564,7 +607,7 @@ const KanbarDropdown = () => {
               <li className="nav-item">
                 <a
                   className="nav-link"
-                  href="javascript:void(0);"
+                  href=""
                   data-bs-toggle="collapse"
                   data-bs-target="#dash_pages"
                 >
@@ -600,7 +643,7 @@ const KanbarDropdown = () => {
                       <li className="nav-item">
                         <a
                           className="nav-link"
-                          href="javascript:void(0);"
+                          href=""
                           data-bs-toggle="collapse"
                           data-bs-target="#dash_log"
                         >
@@ -644,7 +687,7 @@ const KanbarDropdown = () => {
                       <li className="nav-item">
                         <a
                           className="nav-link"
-                          href="javascript:void(0);"
+                          href=""
                           data-bs-toggle="collapse"
                           data-bs-target="#dash_sign"
                         >
@@ -713,7 +756,7 @@ const KanbarDropdown = () => {
               <li className="nav-item">
                 <a
                   className="nav-link"
-                  href="javascript:void(0);"
+                  href=""
                   data-bs-toggle="collapse"
                   data-bs-target="#dash_profile"
                 >

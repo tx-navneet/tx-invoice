@@ -8,8 +8,6 @@ const NavigationBar = () => {
   };
 
   return (
-    <div>
-      <div>
         <div className="taskbar-toolbar">
           <div className="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
             <button
@@ -40,8 +38,6 @@ const NavigationBar = () => {
             />
           </form>
         </div>
-      </div>
-    </div>
   );
 };
 

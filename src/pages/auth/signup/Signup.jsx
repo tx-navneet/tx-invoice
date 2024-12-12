@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Footer from '../../../component/Footer/Footer';
 // import imageOne from "../../../assets/img/signup-bg.jpg";
-import '../../../assets/css/style.css';
+import '../../../../public/css/style.css';
 // import { Img } from 'react-image';
 // import {}
-
+import React from 'react';
 const Signup = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -113,11 +113,7 @@ const Signup = () => {
                   </div>
                   <p className="p-xs text-white credit-text opacity-55">
                     All illustrations are powered by{' '}
-                    <a
-                      href="https://icons8.com/ouch/"
-                      target="_blank"
-                      className="link-white"
-                    >
+                    <a href="https://icons8.com/ouch/" className="link-white">
                       <u>OUCH</u>
                     </a>
                   </p>
