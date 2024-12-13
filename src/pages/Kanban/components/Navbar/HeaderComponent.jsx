@@ -1,11 +1,12 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
-import { navLinks } from '../../utils/ExternalData/Data'; // Update this to include Scrumboard, Contacts, and Todo
 import { IoIosArrowDown } from 'react-icons/io';
-import { Responsivecontext } from '../../context/HeaderContext';
-import DropDown from './DropDown';
 
-const Header = () => {
+import { Responsivecontext } from '../../../../context/HeaderContext';
+import DropDown from '../../../../component/Navbar/DropDown';
+import { navLinks } from '../../../../utils/ExternalData/Data';
+
+const HeaderComponent = () => {
   const { showSidebar } = useContext(Responsivecontext);
   const location = useLocation();
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -37,11 +38,11 @@ const Header = () => {
 
   return (
     <header
-      className={`lg:flex ${showSidebar ? 'block' : 'hidden'} border-b-[1px] border-gray-300 py-3 p-2 relative z-[50]`}
+      className={`lg:flex ${showSidebar ? 'block' : 'hidden'} border-b-[1px] border-gray-300  relative justify-center items-center`}
     >
-      <div className="w-full">
+      <div className="w-full ">
         <nav className="flex justify-start items-center flex-wrap gap-6">
-          <ul className="flex md:flex-row flex-col md:gap-6 gap-3">
+          <ul className="flex md:flex-row flex-col md:gap-6 gap-3 items-center">
             {navLinks.map((link, index) => (
               <li key={index} className="relative">
                 <div
@@ -63,7 +64,7 @@ const Header = () => {
                     ref={dropdownRef}
                     className=""
                   >
-                    <div className="absolute mt-[25px]">
+                    <div className="absolute top-[50px] ">
                       
                     <DropDown linkName={link.name} />
                     </div>
@@ -78,4 +79,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderComponent;

@@ -92,7 +92,7 @@ const CreateInvoice = () => {
               <div className="">
                 <div data-simplebar className="">
                   <div className="container-fluid">
-                    <div className="create-invoice-wrap mt-xxl-5 p-md-5 p-3">
+                    <div className="create-invoice-wrap mt-xxl-5 p-md-5">
                       <h1 className="editable text-center">Invoice</h1>
 
                       <div className="h-[2px] w-full border-1 border-black" />

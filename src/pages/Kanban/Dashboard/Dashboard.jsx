@@ -20,7 +20,6 @@ const Dashboard = () => {
       data-menu="light"
       data-footer="simple"
     >
-      {/* Navigation and Header Components */}
       <KanbanNavbar />
       <KanbanHeader />
 
@@ -46,10 +45,10 @@ const Dashboard = () => {
 
                 {/* Taskboard Body */}
                 <div className="taskboard-body">
-                <div>
-                  <NavigationBar />
-              <MainContent />
-                </div>
+                  <div>
+                    <NavigationBar />
+                    <MainContent />
+                  </div>
                 </div>
 
                 {/* Task Menu Component */}

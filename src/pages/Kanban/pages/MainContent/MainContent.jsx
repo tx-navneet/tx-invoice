@@ -3,6 +3,7 @@ import TaskListActions from '../../components/TaskListEditMenu/TaskListMenu';
 import CardListActions from '../../components/TaskListEditMenu/CardListActions';
 import { Responsivecontext } from '../../../../context/HeaderContext';
 import Popup from '../../components/Models/AddmoreCardModel';
+import TaskList from './TaskList';
 
 const MainContent = () => {
   const { AddmoreCards, handleAddCards } = useContext(Responsivecontext);
@@ -651,6 +652,20 @@ const MainContent = () => {
               </div>
             </div>
           </div>
+
+
+
+
+
+
+
+
+
+                  <TaskList />
+
+
+
+{/*           
           <div className="card card-simple card-border tasklist">
             <div className="card-header card-header-action">
               <div className="tasklist-handle">
@@ -1180,7 +1195,21 @@ const MainContent = () => {
                 ></div>
               </div>
             </div>
-          </div>
+          </div> */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           <div className="card card-simple card-border tasklist">
             <div className="card-header card-header-action">
               <div className="tasklist-handle">

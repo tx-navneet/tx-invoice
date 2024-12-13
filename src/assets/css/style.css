@@ -249,7 +249,7 @@ audio,
 video {
     margin: 0;
     padding: 0;
-    border: 0;
+    /* border: 0; */
 }
 
 em,
@@ -76562,14 +76562,11 @@ div.hopscotch-bubble .hopscotch-bubble-container .hopscotch-actions .card .card-
     min-height: 100vh;
 }
 
-/* Prevent clipping */
-.create-invoice-wrap {
-   
-}
+
 
 
 .hk-pg-body {
-    padding: 2rem 0;
+    padding: 2rem 0 !important;
 }
 
 
@@ -80193,6 +80190,7 @@ span[data-notify="icon"] {
     font: normal normal normal 22px/1 'Material-Design-Iconic-Font';
     text-rendering: auto;
     padding-left: .25rem;
+    speak: none;
     text-transform: none;
     text-rendering: auto;
     line-height: 1;
@@ -80346,6 +80344,7 @@ span[data-notify="icon"] {
     font: normal normal normal 22px/1 'Material-Design-Iconic-Font';
     text-rendering: auto;
     padding-left: .25rem;
+    speak: none;
     text-transform: none;
     text-rendering: auto;
     line-height: 1;
@@ -92991,11 +92990,11 @@ div.hopscotch-bubble .hopscotch-bubble-container .hopscotch-actions .emailapp-wr
 /*Taskboard*/
 
 .taskboardapp-wrap {
-  position: relative;
-  height: calc(100vh - 65px);
-  -webkit-transition: height 0.2s ease;
-  -moz-transition: height 0.2s ease;
-  transition: height 0.2s ease;
+    position: relative;
+    height: calc(100vh - 65px);
+    -webkit-transition: height 0.2s ease;
+    -moz-transition: height 0.2s ease;
+    transition: height 0.2s ease;
 }
 
 .taskboardapp-wrap .taskboardapp-sidebar {

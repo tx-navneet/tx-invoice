@@ -75,13 +75,11 @@
 /* Style the form itself */
 .create-invoice-wrap {
   width: 100%; /* Take up full width of the container */
-  max-width: 900px; /* Maximum width to prevent it from expanding too much */
+  max-width: 1100px; /* Maximum width to prevent it from expanding too much */
   padding: 20px;
   box-sizing: border-box;
   margin: 0 auto;
 }
 
 /* Optional: Make sure the wrapper does not overflow */
-.hk-pg-body {
-  overflow: hidden;
-}
+

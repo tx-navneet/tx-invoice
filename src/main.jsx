@@ -11,6 +11,8 @@ import 'ag-grid-community/styles/ag-theme-alpine.css'; // Theme CSS
 import './assets/css/style.css';
 import 'simplebar-react/dist/simplebar.min.css';
 
+import 'dragula/dist/dragula.css';
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />

@@ -116,22 +116,9 @@ const KanbarNavbar = () => {
                     </a>
                   </div>
 
-
-                    <div className="div">
-                      <div className="number w-[200px]">
-                        <select name="" id=""></select>
-                      </div>
-                      <div className="input">
-                        <input type="text" />
-                      </div>
-                    </div>
-
-
-
-
                   <div className="dropdown-divider"></div>
                   <h6 className="dropdown-header">Help</h6>
-                  <a href="javascript:void(0);" className="dropdown-item">
+                  <a href="#" className="dropdown-item">
                     <div className="media align-items-center">
                       <div className="media-head me-2">
                         <div className="avatar avatar-icon avatar-xs avatar-soft-light avatar-rounded">
@@ -163,7 +150,7 @@ const KanbarNavbar = () => {
                       <div className="media-body">How to setup theme?</div>
                     </div>
                   </a>
-                  <a href="javascript:void(0);" className="dropdown-item">
+                  <a href="#" className="dropdown-item">
                     <div className="media align-items-center">
                       <div className="media-head me-2">
                         <div className="avatar avatar-icon avatar-xs avatar-soft-light avatar-rounded">
@@ -199,7 +186,7 @@ const KanbarNavbar = () => {
                   </a>
                   <div className="dropdown-divider"></div>
                   <h6 className="dropdown-header">Users</h6>
-                  <a href="javascript:void(0);" className="dropdown-item">
+                  <a href="#" className="dropdown-item">
                     <div className="media align-items-center">
                       <div className="media-head me-2">
                         <div className="avatar avatar-xs avatar-rounded">
@@ -213,7 +200,7 @@ const KanbarNavbar = () => {
                       <div className="media-body">Sarah Jone</div>
                     </div>
                   </a>
-                  <a href="javascript:void(0);" className="dropdown-item">
+                  <a href="#" className="dropdown-item">
                     <div className="media align-items-center">
                       <div className="media-head me-2">
                         <div className="avatar avatar-xs avatar-soft-primary avatar-rounded">
@@ -223,7 +210,7 @@ const KanbarNavbar = () => {
                       <div className="media-body">Joe Jackson</div>
                     </div>
                   </a>
-                  <a href="javascript:void(0);" className="dropdown-item">
+                  <a href="#" className="dropdown-item">
                     <div className="media align-items-center">
                       <div className="media-head me-2">
                         <div className="avatar avatar-xs avatar-rounded">
@@ -304,7 +291,7 @@ const KanbarNavbar = () => {
                       </a>
                     </h6>
                     <div data-simplebar className="dropdown-body p-2">
-                      <a href="javascript:void(0);" className="dropdown-item">
+                      <a href="#" className="dropdown-item">
                         <div className="media">
                           <div className="media-head">
                             <div className="avatar avatar-rounded avatar-sm">
@@ -333,7 +320,7 @@ const KanbarNavbar = () => {
                           </div>
                         </div>
                       </a>
-                      <a href="javascript:void(0);" className="dropdown-item">
+                      <a href="#" className="dropdown-item">
                         <div className="media">
                           <div className="media-head">
                             <div className="avatar avatar-icon avatar-sm avatar-success avatar-rounded">
@@ -358,7 +345,7 @@ const KanbarNavbar = () => {
                           </div>
                         </div>
                       </a>
-                      <a href="javascript:void(0);" className="dropdown-item">
+                      <a href="#" className="dropdown-item">
                         <div className="media">
                           <div className="media-head">
                             <div className="avatar avatar-icon avatar-sm avatar-pink avatar-rounded">
@@ -384,7 +371,7 @@ const KanbarNavbar = () => {
                           </div>
                         </div>
                       </a>
-                      <a href="javascript:void(0);" className="dropdown-item">
+                      <a href="#" className="dropdown-item">
                         <div className="media">
                           <div className="media-head">
                             <div className="avatar avatar-sm avatar-rounded">
@@ -410,7 +397,7 @@ const KanbarNavbar = () => {
                           </div>
                         </div>
                       </a>
-                      <a href="javascript:void(0);" className="dropdown-item">
+                      <a href="#" className="dropdown-item">
                         <div className="media">
                           <div className="media-head">
                             <div className="avatar avatar-sm avatar-rounded">
@@ -438,7 +425,7 @@ const KanbarNavbar = () => {
                           </div>
                         </div>
                       </a>
-                      <a href="javascript:void(0);" className="dropdown-item">
+                      <a href="#" className="dropdown-item">
                         <div className="media">
                           <div className="media-head">
                             <div className="avatar avatar-icon avatar-sm avatar-danger avatar-rounded">
