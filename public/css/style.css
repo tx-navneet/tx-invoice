@@ -87891,7 +87891,7 @@ Project:	Jampack
     bottom: 0;
     width: 270px;
     margin-left: 0;
-    z-index: 400;
+    z-index: 50;
     border-right: 1px solid #eaeaea;
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
@@ -88156,7 +88156,7 @@ Project:	Jampack
         transform: translateY(0);
         border-bottom: 1px solid #eaeaea;
         border-right: 0;
-        z-index: 1029;
+        z-index: 20;
     }
 
     .hk-wrapper[data-layout="horizontal"][data-layout-style="default"] .hk-menu>.nicescroll-bar {
@@ -90428,6 +90428,13 @@ div.hopscotch-bubble .hopscotch-bubble-container .hopscotch-actions .chatapp-wra
 
 .chatapp-wrap .chatapp-content .chatapp-single-chat .chat-info .cp-files li:hover .media .media-body .file-name {
     color: #007D88;
+}
+.fixeed-top{
+    position:fixed;
+    top: 0,
+    left: 0,
+    right: 0,
+    z-index: 200;
 }
 
 .chatapp-wrap .chatapp-content .chatapp-single-chat .chat-info .cp-files li:hover .media .media-body a.cp-file-action {

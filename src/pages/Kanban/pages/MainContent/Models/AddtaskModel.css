@@ -1,0 +1,24 @@
+.modal-overlay {
+    position: fixed; /* Fix the overlay to the viewport */
+    top: 0; /* Ensure it starts at the top of the screen */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1029;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align it to the top part of the screen */
+  }
+  
+  .modal-content {
+    position: relative;
+    z-index: 1030;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 600px;
+    margin-top: 80px; /* Adjust this to move the modal below the navbar */
+  }
+  

@@ -88082,7 +88082,7 @@ Project:	Jampack
     right: 0;
     bottom: 0;
     top: 0;
-    z-index: 1031;
+    z-index: 401;
     -webkit-transition: all 0.25s ease;
     -moz-transition: all 0.25s ease;
     transition: all 0.25s ease;
@@ -88136,9 +88136,9 @@ Project:	Jampack
         top: 130px;
     }
 
-    .hk-wrapper[data-layout="horizontal"] .hk-pg-wrapper {
+    /* .hk-wrapper[data-layout="horizontal"] .hk-pg-wrapper {
         padding-top: 130px;
-    }
+    } */
 
     .hk-wrapper[data-layout="horizontal"][data-layout-style="default"] .hk-menu {
         left: 0;
@@ -88153,7 +88153,7 @@ Project:	Jampack
         transform: translateY(0);
         border-bottom: 1px solid #eaeaea;
         border-right: 0;
-        z-index: 1029;
+        z-index: 10;
     }
 
     .hk-wrapper[data-layout="horizontal"][data-layout-style="default"] .hk-menu>.nicescroll-bar {

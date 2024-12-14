@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 // src/TaskCard.js
 import React from 'react';
+import CardListActions from '../../components/TaskListEditMenu/CardListActions';
 
 const TaskCard = ({ title, progress, deadline }) => {
   return (
@@ -44,7 +45,7 @@ const TaskCard = ({ title, progress, deadline }) => {
               </span>
             </span>
           </a>
-          {/* Add CardListActions component here if needed */}
+          <CardListActions />
         </div>
       </div>
       <div className="card-footer text-muted justify-content-between">

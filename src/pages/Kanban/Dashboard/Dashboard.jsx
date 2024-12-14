@@ -28,7 +28,7 @@ const Dashboard = () => {
 
       {/* Main Page Wrapper */}
       <div className="hk-pg-wrapper pb-0">
-        <div className="hk-pg-body py-0">
+        <div className="">
           <div
             className={`taskboardapp-wrap ${
               closeSidebar ? 'taskboardapp-sidebar-toggle' : ''

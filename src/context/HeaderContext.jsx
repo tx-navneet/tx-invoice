@@ -12,9 +12,21 @@ export const ResponsiveProvider = ({ children }) => {
   const [closeTaskbar, setcloseTaskbar] = useState(false);
   const [AddmoreCards, setaddmoreCards] = useState(false);
 
+  // Dashboard inside card add new task state
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShowModel = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
   const handleClick = () => {
     setshowSidebar(!showSidebar);
   };
+ 
 
   const hanldeCloseSidebar = () => {
     setcloseSidebar(!closeSidebar);
@@ -40,6 +52,10 @@ export const ResponsiveProvider = ({ children }) => {
         handleAddCards,
         AddmoreCards,
         setaddmoreCards,
+        handleShowModel,
+        showModal,
+        setShowModal,
+        handleCloseModal
       }}
     >
       {children}

@@ -38,7 +38,7 @@ const HeaderComponent = () => {
 
   return (
     <header
-      className={`lg:flex ${showSidebar ? 'block' : 'hidden'} border-b-[1px] border-gray-300  relative justify-center items-center`}
+      className={`lg:flex ${showSidebar ? 'block' : 'hidden'} relative justify-center items-center p-2`}
     >
       <div className="w-full ">
         <nav className="flex justify-start items-center flex-wrap gap-6">

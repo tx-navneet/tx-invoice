@@ -2,8 +2,8 @@ import React from 'react';
 
 const CardListActions = () => {
   return (
-    <div className="dropdown-menu dropdown-menu-end">
-      <a className="dropdown-item flex items-center" href="#" data-bs-toggle="modal" data-bs-target="#task_detail">
+    <div className="dropdown-menu dropdown-menu-end w-[200px]">
+      <a className="dropdown-item flex items-center justify-center" href="#" data-bs-toggle="modal" data-bs-target="#task_detail">
         <span className="feather-icon dropdown-icon mr-2">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-edit-2">
             <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
