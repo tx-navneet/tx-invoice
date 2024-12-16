@@ -15,18 +15,56 @@ export const ResponsiveProvider = ({ children }) => {
   // Dashboard inside card add new task state
   const [showModal, setShowModal] = useState(false);
 
+  // Add formData state to store task details
+  const [formData, setFormData] = useState({
+    name: '',
+    startDate: '',
+    endDate: '',
+    description: '',
+    priority: 'Medium', // Default priority
+  });
+
+  // Function to generate a unique task name
+  const generateUniqueTaskName = () => {
+    const timestamp = Date.now(); // Current timestamp
+    const randomNum = Math.floor(Math.random() * 1000); // Random number between 0-999
+    return `Task-${timestamp}-${randomNum}`; // Combine both for a unique name
+  };
+
+  // Handle modal visibility
   const handleShowModel = () => {
     setShowModal(true);
+    setFormData({
+      name: generateUniqueTaskName(), // Set a unique name when the modal opens
+      startDate: '',
+      endDate: '',
+      description: '',
+      priority: 'Medium',
+    });
   };
 
   const handleCloseModal = () => {
     setShowModal(false);
   };
 
+  // Handle form data changes
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  // Handle saving the task data
+  const handleSave = () => {
+    // You can add logic to save the task data
+    console.log('Task Saved:', formData);
+    handleCloseModal(); // Close the modal after saving
+  };
+
   const handleClick = () => {
     setshowSidebar(!showSidebar);
   };
- 
 
   const hanldeCloseSidebar = () => {
     setcloseSidebar(!closeSidebar);
@@ -55,7 +93,10 @@ export const ResponsiveProvider = ({ children }) => {
         handleShowModel,
         showModal,
         setShowModal,
-        handleCloseModal
+        handleCloseModal,
+        formData,          // Provide formData
+        handleChange,      // Provide handleChange to update form fields
+        handleSave,        // Provide handleSave to save task
       }}
     >
       {children}

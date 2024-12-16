@@ -1,0 +1,55 @@
+/* Tailwind classes used in components */
+
+/* Draggable boxes */
+.tasklist-scroll {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem; /* Adjust spacing between boxes */
+}
+
+/* Task list style */
+.tasklist-card {
+  transition: transform 0.3s ease;
+}
+
+.tasklist-card:hover {
+  transform: translateY(-5px);
+}
+
+.tasklist-list {
+  max-height: 400px;
+  overflow-y: auto; /* Enable vertical scrolling if there are too many cards */
+}
+
+/* Card hover effect */
+.tasklist-card:hover {
+  transform: translateY(-3px);
+  transition: transform 0.3s ease;
+}
+
+/* Button hover effect */
+button:hover {
+  background-color: #2563eb; /* Hover effect for buttons */
+} 
+
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+}
+
+.scrollbar-thumb-gray-300 {
+  scrollbar-color: rgb(104, 124, 236) transparent;
+}
+
+.scrollbar-track-gray-100::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scrollbar-track-gray-100::-webkit-scrollbar-track {
+  background: #f9fafb;
+}
+
+.scrollbar-thumb-gray-300::-webkit-scrollbar-thumb {
+  background-color: #d1d5db;
+  border-radius: 8px;
+}

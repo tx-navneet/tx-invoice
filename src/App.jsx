@@ -9,6 +9,8 @@ import InvoiceTable from './pages/Invoice/CreateInvoice/components/InvoiceTable'
 import InventoryTable from './Ag-grids/InventoryTable';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+// import Navbar from './component/Navbar/Navbar';
+// import Header from './component/Navbar/Header';
 
 // Lazy load other pages
 const Login = lazy(() => import('./pages/auth/Login/Login'));
@@ -30,8 +32,8 @@ const App = () => {
       <BrowserRouter>
         {/* Suspense fallback with loading spinner for lazy-loaded components */}
         <Suspense fallback={<Spinner />}>
-          {/* <Navbar /> */}
-          {/* <Header /> */}
+          {/* <Navbar />
+          <Header /> */}
 
           {/* Define the Routes for different paths */}
           <Routes>

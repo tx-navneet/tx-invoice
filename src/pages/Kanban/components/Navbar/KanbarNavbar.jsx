@@ -3,7 +3,7 @@ import React from 'react';
 const KanbarNavbar = () => {
   return (
     <>
-      <nav className="hk-navbar navbar navbar-expand-xl navbar-light fixed top-0 left-0 right-0 z-[2]">
+      <nav className="hk-navbar navbar navbar-expand-xl navbar-light fixed-top">
         <div className="container-fluid">
           <div className="nav-start-wrap">
             <a className="navbar-brand d-xl-flex d-none" href="index.html">

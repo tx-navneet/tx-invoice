@@ -28,7 +28,6 @@ const Dashboard = () => {
 
       {/* Main Page Wrapper */}
       <div className="hk-pg-wrapper pb-0">
-        <div className="">
           <div
             className={`taskboardapp-wrap ${
               closeSidebar ? 'taskboardapp-sidebar-toggle' : ''
@@ -49,16 +48,15 @@ const Dashboard = () => {
                     <NavigationBar />
                     <MainContent />
                   </div>
-                </div>
 
-                {/* Task Menu Component */}
+                  {/* Task Menu Component */}
+                </div>
                 <Taskmenu />
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

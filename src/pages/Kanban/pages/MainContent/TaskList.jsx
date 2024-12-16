@@ -68,7 +68,6 @@ const TaskList = () => {
           </button>
         </div>
         <div className="card-body" id="tasklist" ref={tasklistRef}>
-          {/* Add refs to make the task cards draggable */}
           <div
             ref={(el) => taskCardsRef.current.push(el)}
             className="task-card"

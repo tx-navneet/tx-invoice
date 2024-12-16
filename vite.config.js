@@ -13,6 +13,6 @@ export default defineConfig({
     },
   },
   define: {
-    global: 'global', // Ensures `global` is defined globally in the environment
+    global: 'globalThis', // Ensures `global` is defined globally in the environment
   },
 });

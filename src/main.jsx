@@ -10,6 +10,8 @@ import 'ag-grid-community/styles/ag-theme-quartz.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css'; // Theme CSS
 import './assets/css/style.css';
 import 'simplebar-react/dist/simplebar.min.css';
+import { global } from 'global';
+
 
 import 'dragula/dist/dragula.css';
 
