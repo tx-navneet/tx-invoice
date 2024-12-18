@@ -1,9 +1,12 @@
+/* eslint-disable no-undef */
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { Droppable } from '@hello-pangea/dnd';
 import TaskCard from './TaskCard';
 import { GoPlus } from 'react-icons/go';
 import { Button, Menu, Popover, Dialog, Pane, Position } from 'evergreen-ui';
 import { RxDotsVertical } from 'react-icons/rx';
+// import zIndex from '@mui/material/styles/zIndex';
 
 const TaskList = ({ list }) => {
   // State hooks
@@ -97,10 +100,10 @@ const TaskList = ({ list }) => {
 
       {/* Dialog Box - Evergreen UI */}
       {showModal && (
-        <div className="div" style={{zIndex: 1060}}>
+        <div className="div" style={{zIndex: 1100}}>
 
-        <Dialog isShown={showModal} onCloseComplete={handleCloseModal} title="Create New Task" zIndex={1060}>
-          <Pane padding={16} zIndex={1060}>
+        <Dialog isShown={showModal} onCloseComplete={handleCloseModal} title="Create New Task" zIndex={1080} className="z-[1200]"  hasFooter={false}>
+          <Pane padding={16} zIndex={1200} >
             <form>
               <div className="space-y-6">
                 {/* Name Input */}
@@ -227,7 +230,7 @@ const TaskList = ({ list }) => {
           <div
             ref={provided.innerRef}
             {...provided.droppableProps}
-            className="space-y-4 max-h-[400px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100"
+            className="space-y-4 max-h-[500px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100"
           >
             {list.tasks.map((task, index) => (
               <TaskCard key={task.id} task={task} index={index} />

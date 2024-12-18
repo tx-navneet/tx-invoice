@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { Draggable } from '@hello-pangea/dnd';
 import TaskListActions from '../../../components/TaskListEditMenu/TaskListMenu'; // Assume this is your edit menu

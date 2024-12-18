@@ -15,4 +15,5 @@ export default defineConfig({
   define: {
     global: 'globalThis', // Ensures `global` is defined globally in the environment
   },
+  
 });

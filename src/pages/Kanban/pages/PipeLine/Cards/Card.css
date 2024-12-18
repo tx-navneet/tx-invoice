@@ -1,0 +1,12 @@
+.modal-dialog {
+    z-index: 1050 !important; /* Ensure modal is always on top */
+  }
+  
+  .modal-backdrop {
+    z-index: 1040 !important;
+  }
+  
+  .navbar, .header {
+    z-index: 1030 !important;
+  }
+  

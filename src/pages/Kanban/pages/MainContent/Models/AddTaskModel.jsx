@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react';
 import { MdClose } from 'react-icons/md';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Responsivecontext } from '../../../../../context/HeaderContext';
-import './AddtaskModel.css'
+import './AddtaskModel.css';
 
 const AddTaskModal = () => {
   const { showModal, handleCloseModal } = useContext(Responsivecontext);
@@ -15,8 +15,6 @@ const AddTaskModal = () => {
     priority: 'Medium',
   });
 
-  console.log('add task state', showModal); // Debugging line to check modal visibility state
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -27,24 +25,24 @@ const AddTaskModal = () => {
     handleCloseModal(); // Close modal after saving
   };
 
-  // If showModal is false, return null and don't render the modal
+  // Ensure the modal doesn't render if showModal is false
   if (!showModal) return null;
 
   return (
     <AnimatePresence>
-       <motion.div
-      className="modal-overlay"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
       <motion.div
-        className="modal-content"
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.9, opacity: 0 }}
-        transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+        className="modal-overlay"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
       >
+        <motion.div
+          className="modal-content"
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.9, opacity: 0 }}
+          transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+        >
           {/* Close Button */}
           <button
             onClick={handleCloseModal}

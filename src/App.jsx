@@ -9,6 +9,10 @@ import InvoiceTable from './pages/Invoice/CreateInvoice/components/InvoiceTable'
 import InventoryTable from './Ag-grids/InventoryTable';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import Pipeline from './pages/Kanban/pages/PipeLine/Pipeline';
+import ResetPassword from './pages/auth/ResetPassword';
+import FiveZeroThree from './component/error/FiveZeroThree';
+import LockScreen from './component/LockScreen/LockScreen';
 // import Navbar from './component/Navbar/Navbar';
 // import Header from './component/Navbar/Header';
 
@@ -41,11 +45,16 @@ const App = () => {
             <Route path="/home" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
-            <Route path="/create-invoice" element={<CreateInvoice />} ></Route>
+            <Route path="/create-invoice" element={<CreateInvoice />}></Route>
             <Route path="/invoicetable" element={<InvoiceTable />} />
             <Route path="/inventory" element={<InventoryTable />} />
             <Route path="/dashboard" element={<Dahsboard />} />
             <Route path="/invoicepdf" element={<InvoicePDF />} />
+            <Route path="/pipeline" element={<Pipeline />} />
+            <Route path="/resetpassword" element={<ResetPassword />} />
+            <Route path="/503" element={<FiveZeroThree />} />
+            <Route path="/lockscreen" element={<LockScreen />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </Suspense>
 

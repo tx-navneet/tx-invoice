@@ -87115,6 +87115,12 @@ div.hopscotch-bubble
   height: 100%;
   width: 100%;
   z-index: 10;
+  scrollbar-width: none; /* For Firefox */
+}
+
+/* Hide scrollbar for WebKit-based browsers (Chrome, Safari, Edge) */
+.taskboardapp-detail-wrap::-webkit-scrollbar {
+  display: none; /* Hides scrollbar */
 }
 
 .taskboardapp-wrap
@@ -87376,17 +87382,7 @@ div.hopscotch-bubble
   margin-left: 0;
 }
 
-.taskboardapp-wrap
-  .taskboardapp-content
-  .taskboardapp-detail-wrap
-  .taskboard-body {
-  overflow: hidden;
-  -ms-flex: 1;
-  flex: 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
+
 
 .taskboardapp-wrap
   .taskboardapp-content

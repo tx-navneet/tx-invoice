@@ -10,6 +10,8 @@
 /* Task list style */
 .tasklist-card {
   transition: transform 0.3s ease;
+  max-height: 100%; /* Prevent the card from exceeding its parent height */
+  overflow: hidden; /* Hide any overflow content */
 }
 
 .tasklist-card:hover {
