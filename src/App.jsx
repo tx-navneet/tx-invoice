@@ -29,7 +29,7 @@ const InvoicePDF = lazy(
 );
 
 const App = () => {
-  console.log('Navneet');
+  // console.log('Navneet');
 
   return (
     <ResponsiveProvider>

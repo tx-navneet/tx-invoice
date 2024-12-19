@@ -1,9 +1,91 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '../../../../component/Navbar/Header';
 import Navbar from '../../../../component/Navbar/Navbar';
-import { Link, useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router-dom';
+import jsPDF from 'jspdf';
+import SimpleBar from 'simplebar-react';
+import html2canvas from 'html2canvas';
+
 const InvoicePDF = () => {
   const navigate = useNavigate();
+
+  const [invoiceData] = useState({
+    invoiceNo: '0001',
+    invoiceDate: '24/08/2020',
+    dueDate: 'Due on receipt',
+    customerNo: '321456',
+    billedTo: {
+      name: 'Supernova consultant',
+      address: '4747, Pearl Street, Rainy day Drive, Washington DC 42341',
+      email: 'jampack_01@hencework.com',
+    },
+    items: [
+      {
+        description: 'Redesigning of agencyclick.com',
+        quantity: 8,
+        price: 60.0,
+        discount: 5,
+        amount: 420.5,
+      },
+      {
+        description: 'Re-branding',
+        quantity: 1,
+        price: 150.0,
+        discount: 0,
+        amount: 140.5,
+      },
+      {
+        description: 'Social media marketing',
+        quantity: 20,
+        price: 30.0,
+        discount: 5,
+        amount: 540.5,
+      },
+    ],
+    subtotal: 1101.0,
+    itemDiscount: 10.0,
+    extraDiscount: 0.0,
+    total: 1101.0,
+    note: 'Thank you for choosing Hencework for design services. If you need more assistance in future, here is your discount coupon for future jobs. Just call us and mention the coupon code: 10-springhnc.',
+    terms: [
+      'Please pay within 15 days from the date of invoice, overdue interest @ 14% will be charged on delayed payments.',
+      'Please quote invoice number when remitting funds.',
+    ],
+  });
+
+  const savePdf = () => {
+    const doc = new jsPDF('p', 'mm', 'a4');
+    const element = document.getElementById('invoice-content');
+
+    // Use html2canvas to capture the content with optimized settings
+    html2canvas(element, {
+      scale: 1.6, // Reduce scale for smaller file size
+      useCORS: true, // Handle CORS issues with images
+    }).then((canvas) => {
+      const imgData = canvas.toDataURL('image/png', 0.5); // Reduce image quality
+      const imgWidth = 210; // A4 page width in mm
+      const pageHeight = 297; // A4 page height in mm
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      let heightLeft = imgHeight;
+      let position = 0;
+
+      // Add the image to the PDF without borders for the table
+      doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+
+      // If the content is larger than one page, add more pages
+      while (heightLeft > 0) {
+        position = heightLeft - imgHeight;
+        doc.addPage();
+        doc.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+      }
+
+      // Save the generated PDF
+      doc.save('invoice.pdf');
+    });
+  };
+
   return (
     <>
       <Navbar />
@@ -53,40 +135,36 @@ const InvoicePDF = () => {
                   </div>
                   <div className="invoice-options-wrap">
                     <div
-                      onClick={() => navigate('craete-invoice')}
+                      onClick={() => navigate('create-invoice')}
                       className="btn btn-primary flex-shrink-0 d-md-inline-block d-none"
                     >
                       Edit
                     </div>
                     <div className="v-separator d-md-inline-block d-none"></div>
-                    <a
-                      href="create-invoice.php"
+
+                    {/* Save as PDF button */}
+                    <button
+                      onClick={savePdf}
                       className="btn btn-primary flex-shrink-0 d-md-inline-block d-none"
                     >
-                      Print
-                    </a>
-                    <div className="v-separator d-md-inline-block d-none"></div>
-                    <a
-                      href="create-invoice.php"
-                      className="btn btn-primary flex-shrink-0 d-md-inline-block d-none"
-                    >
-                      Send
-                    </a>
+                      Save as PDF
+                    </button>
                   </div>
                 </header>
                 <div className="invoice-body">
-                  <div data-simplebar className="nicescroll-bar">
+                  <SimpleBar className="nicescroll-bar">
                     <div className="container">
-                      <div className="template-invoice-wrap mt-xxl-5 p-md-5 ">
+                      <div
+                        id="invoice-content"
+                        className="template-invoice-wrap mt-xxl-5 p-md-5 "
+                      >
                         <h1 className="text-center mb-0">Invoice</h1>
                         <div className="row mt-4">
                           <div className="col-md-4 order-md-0 order-1">
                             <div className="address-wrap">
-                              <h6>Hencework</h6>
-                              <p>4747, Pearl Street</p>
-                              <p>Rainy day Drive</p>
-                              <p>Washington DC 42341</p>
-                              <p>jampack_01@hencework.com</p>
+                              <h6>{invoiceData.billedTo.name}</h6>
+                              <p>{invoiceData.billedTo.address}</p>
+                              <p>{invoiceData.billedTo.email}</p>
                             </div>
                           </div>
                           <div className="col-md-5 offset-md-3 mb-4 mb-md-0">
@@ -98,10 +176,10 @@ const InvoicePDF = () => {
                                 <div>Customer No</div>
                               </div>
                               <div className="text-dark">
-                                <div className="mb-1">0001</div>
-                                <div className="mb-1">24/08/2020</div>
-                                <div className="mb-1">Due on receipt</div>
-                                <div>321456</div>
+                                <div className="mb-1">{invoiceData.invoiceNo}</div>
+                                <div className="mb-1">{invoiceData.invoiceDate}</div>
+                                <div className="mb-1">{invoiceData.dueDate}</div>
+                                <div>{invoiceData.customerNo}</div>
                               </div>
                             </div>
                           </div>
@@ -109,101 +187,52 @@ const InvoicePDF = () => {
                         <div className="separator separator-light"></div>
                         <div className="row">
                           <div className="col-md-3">
-                            <h6 className="text-uppercase fs-7 mb-2">
-                              Billed To
-                            </h6>
+                            <h6 className="text-uppercase fs-7 mb-2">Billed To</h6>
                             <div className="Billto-wrap">
-                              <h6>Supernova consultant</h6>
-                              <p>4747, Pearl Street</p>
-                              <p>Rainy day Drive</p>
-                              <p>Washington DC 42341</p>
-                              <p>jampack_01@hencework.com</p>
+                              <h6>{invoiceData.billedTo.name}</h6>
+                              <p>{invoiceData.billedTo.address}</p>
+                              <p>{invoiceData.billedTo.email}</p>
                             </div>
                           </div>
                         </div>
                         <div className="table-wrap mt-6">
                           <div className="table-responsive">
-                            <table className="table table-bordered">
+                            <table className="table" style={{ borderCollapse: 'collapse', border: 'none' }}>
                               <thead className="thead-primary">
                                 <tr>
-                                  <th>Item</th>
-                                  <th className="text-end">Quantity</th>
-                                  <th className="text-end">Price</th>
-                                  <th className="text-end">Discount</th>
-                                  <th className="text-end">Amount</th>
+                                  <th style={{ border: 'none' }}>Item</th>
+                                  <th style={{ border: 'none' }} className="text-end">Quantity</th>
+                                  <th style={{ border: 'none' }} className="text-end">Price</th>
+                                  <th style={{ border: 'none' }} className="text-end">Discount</th>
+                                  <th style={{ border: 'none' }} className="text-end">Amount</th>
                                 </tr>
                               </thead>
                               <tbody>
+                                {invoiceData.items.map((item, index) => (
+                                  <tr key={index}>
+                                    <td style={{ border: 'none' }} className="w-70"><h6>{item.description}</h6></td>
+                                    <td style={{ border: 'none' }} className="text-end text-dark">{item.quantity}</td>
+                                    <td style={{ border: 'none' }} className="w-15 text-end text-dark">{item.price.toFixed(2)}</td>
+                                    <td style={{ border: 'none' }} className="text-end text-dark">{item.discount}%</td>
+                                    <td style={{ border: 'none' }} className="w-20 text-end text-dark">{item.amount.toFixed(2)}</td>
+                                  </tr>
+                                ))}
                                 <tr>
-                                  <td className="w-70">
-                                    <h6>Redesiging of agencyclick.com</h6>
-                                    <p>
-                                      This is my project description. if the
-                                      line do not filt like the sentence is to
-                                      big the area will start getting bigger
-                                    </p>
-                                  </td>
-                                  <td className="text-end text-dark">8</td>
-                                  <td className="w-15 text-end text-dark">
-                                    60.00
-                                  </td>
-                                  <td className="text-end text-dark">5%</td>
-                                  <td className="w-20 text-end text-dark">
-                                    $420.5
-                                  </td>
+                                  <td colSpan="2" rowSpan="4" style={{ border: 'none' }}></td>
+                                  <td colSpan="2" style={{ border: 'none' }}>Subtotal</td>
+                                  <td style={{ border: 'none' }} className="text-end text-dark">{invoiceData.subtotal.toFixed(2)}</td>
                                 </tr>
                                 <tr>
-                                  <td className="w-70">
-                                    <h6>Re-branding</h6>
-                                  </td>
-                                  <td className="text-end text-dark">1</td>
-                                  <td className="w-15 text-end text-dark">
-                                    150.00
-                                  </td>
-                                  <td className="text-end text-dark">0%</td>
-                                  <td className="w-20 text-end text-dark">
-                                    $140.5
-                                  </td>
+                                  <td colSpan="2" style={{ border: 'none' }}>Item Discount</td>
+                                  <td style={{ border: 'none' }} className="text-end text-dark">{invoiceData.itemDiscount.toFixed(2)}</td>
                                 </tr>
                                 <tr>
-                                  <td className="w-70">
-                                    <h6>Social media marketing</h6>
-                                  </td>
-                                  <td className="text-end text-dark">20</td>
-                                  <td className="w-15 text-end text-dark">
-                                    30.00
-                                  </td>
-                                  <td className="text-end text-dark">5%</td>
-                                  <td className="w-20 text-end text-dark">
-                                    $540.5
-                                  </td>
+                                  <td colSpan="2" style={{ border: 'none' }}>Extra Discount</td>
+                                  <td style={{ border: 'none' }} className="text-end text-dark">{invoiceData.extraDiscount.toFixed(2)}</td>
                                 </tr>
-                                <tr>
-                                  <td
-                                    colSpan="2"
-                                    rowSpan="4"
-                                    className="border-0"
-                                  ></td>
-                                  <td colSpan="2">Subtotal</td>
-                                  <td className="text-end text-dark">
-                                    $1101.0
-                                  </td>
-                                </tr>
-                                <tr>
-                                  <td colSpan="2">Item Discount</td>
-                                  <td className="text-end text-dark">$10.0</td>
-                                </tr>
-                                <tr>
-                                  <td colSpan="2">Extra Discount</td>
-                                  <td className="text-end text-dark">$0</td>
-                                </tr>
-                                <tr className="border-0">
-                                  <td colSpan="2" className="text-dark border">
-                                    Total
-                                  </td>
-                                  <td className="text-end text-dark border">
-                                    $1101.0
-                                  </td>
+                                <tr style={{ border: 'none' }}>
+                                  <td colSpan="2" style={{ border: 'none' }} className="text-dark">Total</td>
+                                  <td style={{ border: 'none' }} className="text-end text-dark">{invoiceData.total.toFixed(2)}</td>
                                 </tr>
                               </tbody>
                             </table>
@@ -212,12 +241,7 @@ const InvoicePDF = () => {
                         <div className="row mt-3">
                           <div className="col-lg-5">
                             <h6>Note to client</h6>
-                            <p>
-                              thank you for choosing Hencework for design
-                              services. If you need more assistance in future
-                              here is your discount coupon for future jobs. Just
-                              call us and mention the coupon code:10-springhnc
-                            </p>
+                            <p>{invoiceData.note}</p>
                           </div>
                           <div className="col-lg-7 text-lg-end mt-lg-0 mt-3">
                             <h5 className="mt-lg-7">Katherine Zeta Jones</h5>
@@ -229,21 +253,15 @@ const InvoicePDF = () => {
                           <div className="col-md-12">
                             <h6>Terms & Conditions</h6>
                             <ol className="ps-3">
-                              <li>
-                                Please pay within 15 days from the date of
-                                invoice, overdue interest @ 14% will be charged
-                                on delayed payments.
-                              </li>
-                              <li>
-                                Please quote invoice number when remitting
-                                funds.
-                              </li>
+                              {invoiceData.terms.map((term, index) => (
+                                <li key={index}>{term}</li>
+                              ))}
                             </ol>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </SimpleBar>
                 </div>
               </div>
             </div>
@@ -254,4 +272,4 @@ const InvoicePDF = () => {
   );
 };
 
-export default InvoicePDF;
+export default InvoicePDF;  

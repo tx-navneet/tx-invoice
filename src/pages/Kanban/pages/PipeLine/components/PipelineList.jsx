@@ -62,7 +62,7 @@ const PipelineList = ({ title, estimation, price, leadCount }) => {
 
       {/* Modal for Adding Card */}
       {isModalOpen && (
-        <div className="modal fade show d-block" tabIndex="-1" role="dialog">
+        <div className="modal fade show d-block z-[1060]" tabIndex="-1" role="dialog">
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
               <div className="modal-header">

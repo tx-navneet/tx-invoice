@@ -26,6 +26,8 @@ const Pipeline = () => {
   }, []);
 
   return (
+    <>
+
     <div
       className="hk-wrapper"
       data-layout="horizontal"
@@ -58,6 +60,9 @@ const Pipeline = () => {
         </div>
       </div>
     </div>
+
+    
+    </>
   );
 };
 

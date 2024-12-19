@@ -137,7 +137,8 @@ const PipelineBody = ({ cards }) => {
 
       {/* Add List Dialog */}
       {isListDialogOpen && (
-        <div className="modal fade show d-block" tabIndex="-1" role="dialog">
+
+        <div className=" modal fade show d-block z-[1060] reletive" tabIndex="-1" role="dialog">
           <div className="modal-dialog modal-dialog-centered" role="document">
             <div className="modal-content">
               <div className="modal-header">
@@ -185,7 +186,9 @@ const PipelineBody = ({ cards }) => {
 
       {/* Add Card Dialog */}
       {isCardDialogOpen && (
-        <div className="modal fade show d-block" tabIndex="-1" role="dialog">
+        <div className="reletive z-[1060]">
+
+        <div className="modal fade show d-block " tabIndex="-1" role="dialog">
           <div className="modal-dialog modal-dialog-centered" role="document">
             <div className="modal-content">
               <div className="modal-header">
@@ -287,6 +290,7 @@ const PipelineBody = ({ cards }) => {
             </div>
           </div>
           <div className="modal-backdrop fade show"></div>
+        </div>
         </div>
       )}
     </div>

@@ -7,6 +7,7 @@ import { GoPlus } from 'react-icons/go';
 import { Button, Menu, Popover, Dialog, Pane, Position } from 'evergreen-ui';
 import { RxDotsVertical } from 'react-icons/rx';
 // import zIndex from '@mui/material/styles/zIndex';
+import "./TaskBoard.css"
 
 const TaskList = ({ list }) => {
   // State hooks
@@ -230,7 +231,7 @@ const TaskList = ({ list }) => {
           <div
             ref={provided.innerRef}
             {...provided.droppableProps}
-            className="space-y-4 max-h-[500px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100"
+            className="space-y-4 max-h-[450px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100"
           >
             {list.tasks.map((task, index) => (
               <TaskCard key={task.id} task={task} index={index} />

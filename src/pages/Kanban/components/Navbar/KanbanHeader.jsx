@@ -10,12 +10,12 @@ const KanbarDropdown = () => {
           <a className="navbar-brand" href="index.html">
             <img
               className="brand-img img-fluid"
-              src="dist/img/brand-sm.svg"
+              src="/img/brand-sm.svg"
               alt="brand"
             />
             <img
               className="brand-img img-fluid"
-              src="dist/img/Jampack.svg"
+              src="/img/Jampack.svg"
               alt="brand"
             />
           </a>

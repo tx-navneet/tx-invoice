@@ -1,57 +1,50 @@
-/* Tailwind classes used in components */
-
-/* Draggable boxes */
+/* Enable horizontal and vertical scrolling */
 .tasklist-scroll {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem; /* Adjust spacing between boxes */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  overflow-y: hidden; /* Disable vertical scrolling for horizontal layout */
+  white-space: nowrap; /* Prevent wrapping to enable a single horizontal line */
+  gap: 1.5rem;
 }
 
-/* Task list style */
+/* Vertical scroll for task lists */
+.tasklist-list {
+  max-height: 400px; /* Limit height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  scrollbar-width: thin; /* For Firefox */
+}
+
+/* Consistent hover effect for cards */
 .tasklist-card {
   transition: transform 0.3s ease;
-  max-height: 100%; /* Prevent the card from exceeding its parent height */
-  overflow: hidden; /* Hide any overflow content */
+  max-height: 100%;
+  overflow: hidden;
 }
 
 .tasklist-card:hover {
-  transform: translateY(-5px);
-}
-
-.tasklist-list {
-  max-height: 400px;
-  overflow-y: auto; /* Enable vertical scrolling if there are too many cards */
-}
-
-/* Card hover effect */
-.tasklist-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-5px); /* Hover lift effect */
   transition: transform 0.3s ease;
 }
 
-/* Button hover effect */
-button:hover {
-  background-color: #2563eb; /* Hover effect for buttons */
-} 
-
-
+/* Custom scrollbars */
 .scrollbar-thin {
   scrollbar-width: thin;
 }
 
-.scrollbar-thumb-gray-300 {
-  scrollbar-color: rgb(104, 124, 236) transparent;
-}
-
 .scrollbar-track-gray-100::-webkit-scrollbar {
-  width: 8px;
+  height: 6px; /* Horizontal scrollbar height */
+  width: 8px; /* Vertical scrollbar width */
 }
 
 .scrollbar-track-gray-100::-webkit-scrollbar-track {
-  background: #f9fafb;
+  background: #f9fafb; /* Track color */
 }
 
 .scrollbar-thumb-gray-300::-webkit-scrollbar-thumb {
-  background-color: #d1d5db;
-  border-radius: 8px;
+  background-color: #d1d5db; /* Thumb color */
+  border-radius: 8px; /* Rounded scrollbar thumb */
+}
+
+.scrollbar-thumb-gray-300::-webkit-scrollbar-thumb:hover {
+  background-color: #9ca3af; /* Hover effect for thumb */
 }

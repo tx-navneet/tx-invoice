@@ -38,10 +38,10 @@ const HeaderComponent = () => {
 
   return (
     <header
-      className={`lg:flex ${showSidebar ? 'block' : 'hidden'} reletive z-[500] justify-center items-center p-2`}
+      className={`lg:flex ${showSidebar ? 'block' : 'hidden'}justify-center items-center p-2 `}
     >
-      <div className="w-full ">
-        <nav className="flex justify-start items-center flex-wrap gap-6">
+      <div className="w-full flex items-center">
+        <nav className="flex justify-start items-center flex-wrap gap-6 " style={{display: "flex",justifyContent: "start",alignItems: "center" ,marginTop: "12px"}}>
           <ul className="flex md:flex-row flex-col md:gap-6 gap-3 items-center">
             {navLinks.map((link, index) => (
               <li key={index} className="relative">
@@ -60,14 +60,8 @@ const HeaderComponent = () => {
 
                 {/* Dropdown */}
                 {openDropdown === link.name && linksWithDropdown.includes(link.name) && (
-                  <div
-                    ref={dropdownRef}
-                    className=""
-                  >
-                    <div className="absolute top-[50px] ">
-                      
+                  <div ref={dropdownRef} className="absolute top-[50px]">
                     <DropDown linkName={link.name} />
-                    </div>
                   </div>
                 )}
               </li>

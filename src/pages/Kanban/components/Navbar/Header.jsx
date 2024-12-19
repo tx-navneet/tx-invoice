@@ -5,7 +5,7 @@ const Header = () => {
   const { hanldeCloseSidebar, closeTaskbar,hanldeCloseTaskbar } = useContext(Responsivecontext);
   return (
     <>
-      <header className="taskboard-header">
+      <header className="taskboard-header py-3">
         <div className="d-flex align-items-center flex-1">
           <div className="d-flex">
             <a className="taskboardapp-title link-dark" href="#">

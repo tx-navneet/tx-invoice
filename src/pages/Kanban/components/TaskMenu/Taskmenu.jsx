@@ -4,7 +4,8 @@ import 'simplebar-react/dist/simplebar.min.css';
 
 const Taskmenu = () => {
   return (
-    <div className="taskboard-info">
+    
+    <div className="taskboard-info ">
       <SimpleBar className="nicescroll-bar">
         <button type="button" className="info-close btn-close mb-10">
           <span aria-hidden="true">&times;</span>

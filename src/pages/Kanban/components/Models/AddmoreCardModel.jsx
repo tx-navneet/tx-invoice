@@ -19,7 +19,7 @@ const Popup = () => {
 
   return (
     <div className="relative">
-      <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50">
+      <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-[1060]">
         <div className="bg-white rounded-lg shadow-lg p-4 w-64 relative transform transition-all duration-300 scale-95">
           {/* Close Button */}
           <button

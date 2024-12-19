@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { DragDropContext, Droppable } from '@hello-pangea/dnd';
 import TaskList from './TaskList';
 import AddTaskModal from '../Models/AddTaskModel';
+import "./TaskBoard.css"
 
 const TaskBoard = () => {
   const [taskLists, setTaskLists] = useState([
@@ -278,7 +279,7 @@ const TaskBoard = () => {
   };
   return (
     <>
-      <div className="px-5 pt-2 pb-4">
+      <div className="pl-3 pt-2 pb-4">
         <div className=" flex justify-end items-center">
           <div className="mb-2 flex gap-4">
             <input
