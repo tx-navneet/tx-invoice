@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import KanbanNavbar from '../../components/Navbar/KanbarNavbar';
-import KanbanHeader from '../../components/Navbar/KanbanHeader';
 import SectionFooter from './Cards/SectionFooter';
 import feather from 'feather-icons';
 import PipelineHeader from './components/PipelineHeader';
 import PipelineBody from './Cards/PipelineBody';
+import KanbarDropdown from '../../components/Navbar/KanbanHeader';
 
 // Mock card data generator
 const generateCards = (count) =>
@@ -37,7 +37,10 @@ const Pipeline = () => {
     >
       {/* Navigation and Header */}
       <KanbanNavbar />
-      <KanbanHeader />
+      <div className="hk-menu">
+
+      <KanbarDropdown />
+      </div>
       <div id="hk_menu_backdrop" className="hk-menu-backdrop"></div>
 
       {/* Page Body */}

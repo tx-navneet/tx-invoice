@@ -76,7 +76,7 @@ const PipelineBody = ({ cards }) => {
   return (
     <div
       // className=""
-      className="taskboard-body pt-6 overflow-x-auto conteriner-fluid "
+      className="taskboard-body pt-6 overflow-x-auto conteriner-fluid bg-yellow-300 bg-opacity-20 backdrop-blur-md border border-yellow-300/30 rounded-lg p-6 shadow-lg h-[70vh]"
       style={{
         height: '100vh',
         overflowY: 'auto',
@@ -88,7 +88,7 @@ const PipelineBody = ({ cards }) => {
         style={{ height: '89%', overflowY: 'auto' }}
       >
         <div
-          className="tasklist-wrap d-inline-flex"
+          className="tasklist-wrap d-inline-flex "
           style={{
             gap: '16px',
             minWidth: '100%',
@@ -114,10 +114,11 @@ const PipelineBody = ({ cards }) => {
           <div
             className="card card-simple card-border spipeline-list create-new-list"
             style={{
-              height: '200px', // Fixed height
+              height: '200px', 
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
+              backgroundColor: "#f7f7f7"
             }}
           >
             <div className="card-header card-header-action">

@@ -1,59 +1,101 @@
-import React, { useContext, useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Responsivecontext } from '../../context/HeaderContext';
 import AccountMenu from '../Avtar/LoginAvatar';
+import { AppBar, Toolbar, IconButton, Typography, Box } from '@mui/material';
+import { Menu as MenuIcon } from '@mui/icons-material';
 
 const Navbar = () => {
   const { handleClick } = useContext(Responsivecontext);
-  const [showUser, setshowUser] = useState(false);
+  const [showUser, setShowUser] = useState(false);
+  // eslint-disable-next-line no-unused-vars
+  const [anchorEl, setAnchorEl] = useState(null);
 
-  const handleToggle = () => {
-    setshowUser(!showUser);
+  const handleToggle = (event) => {
+    setAnchorEl(event.currentTarget);
+    setShowUser(!showUser);
+  };
+
+  const handleCloseMenu = () => {
+    setAnchorEl(null);
+    setShowUser(false);
   };
 
   return (
     <>
-      <div className="p-4 ml-2 border-b-[1px] border-gray-300">
-        <div className="flex justify-between items-center w-full sm:flex-col flex-row">
-          <div className="boxOne lg:block hidden">
-            <span className="text-black text-2xl font-semibold">
+      <AppBar position="static" sx={{ backgroundColor: '#FFFFFF', boxShadow: 0, padding: '0 20px',borderBottom: "1px solid #e5e7eb" }}>
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          {/* Left side - Brand */}
+          <Box className="boxOne" sx={{ display: { xs: 'none', lg: 'block' } }}>
+            <Typography variant="h6" sx={{ color: 'black', fontWeight: 'bold' }}>
               TX INVOICE
-            </span>
-          </div>
+            </Typography>
+          </Box>
 
-          <div className="boxTwo lg:hidden">
-            <button onClick={handleClick} className="text-black text-3xl">
-              &#9776;
-            </button>
-          </div>
+          {/* Right side - Hamburger menu (for mobile) */}
+          <Box sx={{ display: { xs: 'block', lg: 'none' } }}>
+            <IconButton edge="start" onClick={handleClick} sx={{ color: 'black' }}>
+              <MenuIcon sx={{ fontSize: '30px' }} />
+            </IconButton>
+          </Box>
 
-          <div className="boxTwo flex items-center">
-            <div className="w-[40px] h-[40px]" onClick={handleToggle}>
+          {/* Avatar / User Profile */}
+          <Box>
+            <IconButton onClick={handleToggle}>
               <img
                 src="/img/avatar12.jpg"
                 alt="User Avatar"
-                className="rounded-full w-full h-full cursor-pointer"
+                className="rounded-full"
+                style={{ width: '40px', height: '40px', cursor: 'pointer' }}
               />
-            </div>
-          </div>
-        </div>
-      </div>
+            </IconButton>
+          </Box>
+        </Toolbar>
+      </AppBar>
 
+      {/* User menu/modal */}
       {showUser && (
-        <div className="fixed inset-0 bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white p-4 rounded-lg shadow-lg w-72">
-            {/* <UserModel />
-            <button
-              onClick={handleToggle}
-              className="absolute top-2 right-2 text-gray-500 text-xl"
+        <Box
+          sx={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 9999,
+          }}
+        >
+          <Box
+            sx={{
+              backgroundColor: 'white',
+              borderRadius: '8px',
+              padding: '16px',
+              width: '280px',
+              boxShadow: 3,
+              position: 'relative',
+            }}
+          >
+            <AccountMenu />
+
+            {/* Close button */}
+            <IconButton
+              onClick={handleCloseMenu}
+              sx={{
+                position: 'absolute',
+                top: '8px',
+                right: '8px',
+                color: 'gray',
+                fontSize: '20px',
+              }}
             >
               &#10006;
-            </button> */}
-            <AccountMenu />
-          </div>
-        </div>
+            </IconButton>
+          </Box>
+        </Box>
       )}
-
-      {/* <div className="w-full h-[1px] bg-gray-200"></div> */}
     </>
   );
 };

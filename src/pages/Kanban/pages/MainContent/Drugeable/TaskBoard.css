@@ -2,7 +2,6 @@
 .tasklist-scroll {
   display: flex;
   overflow-x: auto; /* Enable horizontal scrolling */
-  overflow-y: hidden; /* Disable vertical scrolling for horizontal layout */
   white-space: nowrap; /* Prevent wrapping to enable a single horizontal line */
   gap: 1.5rem;
 }

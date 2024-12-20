@@ -231,7 +231,7 @@ const TaskList = ({ list }) => {
           <div
             ref={provided.innerRef}
             {...provided.droppableProps}
-            className="space-y-4 max-h-[450px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100"
+            className="space-y-4 max-h-[430px] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100"
           >
             {list.tasks.map((task, index) => (
               <TaskCard key={task.id} task={task} index={index} />
