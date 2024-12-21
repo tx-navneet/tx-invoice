@@ -20,24 +20,25 @@ import {
   Button,
 } from 'evergreen-ui';
 import { useNavigate } from 'react-router';
+import Navbar from '../component/Navbar/Navbar';
+import Header from '../component/Navbar/Header';
 
-// Registering the required AG Grid modules
 ModuleRegistry.registerModules([ClientSideRowModelModule]);
 
-const GridExample = () => {
+const InventoryTable = () => {
   const navigate = useNavigate();
   const [rowData] = useState(invoicesData);
 
   const getStatusButtonClass = (status) => {
     switch (status) {
       case 'Unpaid':
-        return 'bg-[#FF0000] text-[#fff] hover:opacity-70'; // Red for Unpaid
+        return 'hover:opacity-80 bg-red-500 text-white py-1 px-4 rounded-full';
       case 'Paid':
-        return 'bg-[#007D88] text-[#fff] hover:opacity-70'; // Green for Paid
+        return 'hover:opacity-80 bg-green-500 text-white py-1 px-4 rounded-full';
       case 'Draft':
-        return 'bg-[#eaeaea] text-[#262a2e] hover:opacity-70'; // Gray for Draft
+        return 'hover:opacity-80 bg-blue-500 text-white py-1 px-4 rounded-full';
       default:
-        return 'bg-blue-800 text-white'; // Default color
+        return 'bg-gray-300 text-black';
     }
   };
 
@@ -54,27 +55,24 @@ const GridExample = () => {
 
   const columnDefs = useMemo(
     () => [
-      { headerName: 'ID', field: 'id', resizable: true },
-      { headerName: 'Date', field: 'date', resizable: true },
-      { headerName: 'Recipient', field: 'recipient', resizable: true },
-      { headerName: 'Email', field: 'email', flex: 1, resizable: true },
+      { headerName: 'ID', field: 'id', resizable: true, cellClass: 'text-left' },
+      { headerName: 'Date', field: 'date', resizable: true, cellClass: 'text-left' },
+      { headerName: 'Recipient', field: 'recipient', resizable: true, cellClass: 'text-left' },
+      { headerName: 'Email', field: 'email', flex: 1, resizable: true, cellClass: 'text-left' },
       {
         headerName: 'Status',
         field: 'status',
         cellRenderer: (params) => {
           const status = params.value;
           return (
-            <span
-              className={`px-3 py-2 text-[11px] text-[#fff] rounded-full ${getStatusButtonClass(
-                status
-              )}`}
-            >
+            <span className={getStatusButtonClass(status)}>
               {status}
             </span>
           );
         },
+        cellClass: 'text-left',
       },
-      { headerName: 'Amount', field: 'amount', resizable: true },
+      { headerName: 'Amount', field: 'amount', resizable: true, cellClass: 'text-left' },
       {
         headerName: 'Actions',
         field: 'actions',
@@ -82,40 +80,32 @@ const GridExample = () => {
         cellRenderer: (params) => {
           const { id } = params.data;
           return (
-            <div className="flex justify-start items-center gap-3">
-               
+            <div className="flex justify-center items-center gap-3">
               <Popover
                 position={Position.BOTTOM_LEFT}
                 content={
                   <Menu>
                     <Menu.Group>
-                      <Menu.Item
-                        onSelect={() => toaster.success('Invoice sent.')}
-                      >
+                      <Menu.Item onSelect={() => toaster.success('Invoice sent.')}>
                         Send
                       </Menu.Item>
                       <Menu.Item onSelect={() => handleEdit(id)}>
                         Edit
                       </Menu.Item>
-                      <Menu.Item
-                        onSelect={() => toaster.success('Invoice archived.')}
-                      >
+                      <Menu.Item onSelect={() => toaster.success('Invoice archived.')}>
                         Archive
                       </Menu.Item>
-                      <Menu.Item
-                        onSelect={() => handleDelete(id)}
-                        intent="danger"
-                      >
+                      <Menu.Item onSelect={() => handleDelete(id)} intent="danger">
                         Delete
                       </Menu.Item>
                     </Menu.Group>
                   </Menu>
                 }
               >
-              <Button marginRight={16} intent='success' className='w-[100px]'>Edit</Button>
+                <Button marginRight={16} intent="success" className="w-[100px]">
+                  Edit
+                </Button>
               </Popover>
-
-              {/* Edit and Delete Icons */}
               <IconButton
                 icon={EditIcon}
                 intent="success"
@@ -129,6 +119,7 @@ const GridExample = () => {
             </div>
           );
         },
+        cellClass: 'text-left',
       },
     ],
     []
@@ -148,39 +139,34 @@ const GridExample = () => {
     pagination: true,
     paginationPageSize: 10,
     rowSelection: 'multiple',
+    animateRows: true,
   };
 
   return (
-    <div
-      className="ag-theme-quartz pt-6"
-      style={{ height: '75vh', width: '96%', margin: '0 auto' }}
-    >
-      <div className="flex justify-between items-center mb-4">
-        <button
-          type="button"
-          className="btn btn-outline-primary d-flex justify-center items-center gap-2"
-        >
-          <AiOutlineFilePdf className="text-[20px]" />
-          Export in PDF
-        </button>
-        <div className="button d-flex gap-4">
-          <button
-            type="button"
-            className="btn btn-outline-success d-flex justify-center items-center gap-2"
-          >
+    <>
+      <Navbar />
+      <Header />
+      <div className="ag-theme-quartz pt-3" style={{ height: '78vh', width: '96%', margin: '0 auto' }}>
+        <div className="flex justify-between items-center mb-4">
+          <button type="button" className="btn btn-outline-primary d-flex justify-center items-center gap-2">
+            <AiOutlineFilePdf className="text-[20px]" />
+            Export in PDF
+          </button>
+          <button type="button" className="btn btn-outline-success d-flex justify-center items-center gap-2">
             <BsFiletypeCsv className="text-[20px]" />
             Export in CSV
           </button>
         </div>
+        <AgGridReact
+          rowData={rowData}
+          columnDefs={columnDefs}
+          defaultColDef={defaultColDef}
+          gridOptions={gridOptions}
+          rowHeight={60}
+        />
       </div>
-      <AgGridReact
-        rowData={rowData}
-        columnDefs={columnDefs}
-        defaultColDef={defaultColDef}
-        gridOptions={gridOptions}
-      />
-    </div>
+    </>
   );
 };
 
-export default GridExample;
+export default InventoryTable;

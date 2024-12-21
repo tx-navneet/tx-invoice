@@ -1,66 +1,81 @@
 import React, { Suspense, lazy } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// Import components
 import Spinner from './component/Loader/Spinner';
 import { ResponsiveProvider } from './context/HeaderContext';
-import InvoiceTable from './pages/Invoice/CreateInvoice/components/InvoiceTable';
-import InventoryTable from './Ag-grids/InventoryTable';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import Pipeline from './pages/Kanban/pages/PipeLine/Pipeline';
-import ResetPassword from './pages/auth/ResetPassword';
-import FiveZeroThree from './component/error/FiveZeroThree';
-import LockScreen from './component/LockScreen/LockScreen';
-// import Navbar from './component/Navbar/Navbar';
-// import Header from './component/Navbar/Header';
+import SwiperCardComponent from './pages/Kanban/pages/PipeLine/Cards/SwiperCard';
 
-// Lazy load other pages
+// Lazy-loaded components
 const Login = lazy(() => import('./pages/auth/Login/Login'));
 const SignUp = lazy(() => import('./pages/auth/signup/Signup'));
 const Home = lazy(() => import('./pages/Home/Home'));
-const Dahsboard = lazy(() => import('./pages/Kanban/Dashboard/Dashboard'));
+const Dashboard = lazy(() => import('./pages/Kanban/Dashboard/Dashboard'));
 const CreateInvoice = lazy(
   () => import('./pages/Invoice/CreateInvoice/CreateInvoice')
 );
 const InvoicePDF = lazy(
   () => import('./pages/Invoice/CreateInvoice/InvoicePDF/InvoicePDF')
 );
+const InvoiceTable = lazy(
+  () => import('./pages/Invoice/CreateInvoice/components/InvoiceTable')
+);
+// const InventoryTable = lazy(()=>import('./Ag-grids/InventoryTable'))
+const InventoryTable = lazy(() => import('./Ag-grids/InventoryTable'));
+const Pipeline = lazy(() => import('./pages/Kanban/pages/PipeLine/Pipeline'));
+const ResetPassword = lazy(() => import('./pages/auth/ResetPassword'));
+const FiveZeroThree = lazy(() => import('./component/error/FiveZeroThree'));
+const LockScreen = lazy(() => import('./component/LockScreen/LockScreen'));
+
+// Define grouped routes
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />,
+  },
+  {
+    path: '/auth',
+    children: [
+      { path: 'login', element: <Login /> },
+      { path: 'signup', element: <SignUp /> },
+      { path: 'resetpassword', element: <ResetPassword /> },
+    ],
+  },
+  {
+    path: '/dashboard',
+    children: [
+      { path: '', element: <Dashboard /> },
+      { path: 'pipeline', element: <Pipeline /> },
+    ],
+  },
+  {
+    path: '/invoice',
+    children: [
+      { path: '', element: <CreateInvoice /> },
+      { path: 'table', element: <InvoiceTable /> },
+      { path: 'pdf', element: <InvoicePDF /> },
+      { path: 'inventorytable', element: <InventoryTable /> },
+      {path: "swiper" , element: <SwiperCardComponent />}
+
+    ],
+  },
+
+  {
+    path: '/error',
+    children: [
+      { path: '503', element: <FiveZeroThree /> },
+      { path: 'lockscreen', element: <LockScreen /> },
+    ],
+  },
+]);
 
 const App = () => {
-  // console.log('Navneet');
-
   return (
     <ResponsiveProvider>
-      <BrowserRouter>
-        {/* Suspense fallback with loading spinner for lazy-loaded components */}
-        <Suspense fallback={<Spinner />}>
-          {/* <Navbar />
-          <Header /> */}
-
-          {/* Define the Routes for different paths */}
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="/create-invoice" element={<CreateInvoice />}></Route>
-            <Route path="/invoicetable" element={<InvoiceTable />} />
-            <Route path="/inventory" element={<InventoryTable />} />
-            <Route path="/dashboard" element={<Dahsboard />} />
-            <Route path="/invoicepdf" element={<InvoicePDF />} />
-            <Route path="/pipeline" element={<Pipeline />} />
-            <Route path="/resetpassword" element={<ResetPassword />} />
-            <Route path="/503" element={<FiveZeroThree />} />
-            <Route path="/lockscreen" element={<LockScreen />} />
-            <Route path="/login" element={<Login />} />
-          </Routes>
-        </Suspense>
-
-        {/* Toast notifications container */}
-        <ToastContainer />
-      </BrowserRouter>
+      <Suspense fallback={<Spinner />}>
+        <RouterProvider router={router} />
+      </Suspense>
+      <ToastContainer />
     </ResponsiveProvider>
   );
 };

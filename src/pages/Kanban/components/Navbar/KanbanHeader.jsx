@@ -80,7 +80,8 @@ const KanbarDropdown = () => {
                 sx={{
                   color: '#262a2e',
                   fontSize: '14px',
-                  // paddingTop: "14px",
+                  // paddingTop: "20px",
+                  // top: "20px",
                   fontWeight: '400', // Semi-bold
                   letterSpacing: '1px',
                   textTransform: 'capitalize',
@@ -112,7 +113,7 @@ const KanbarDropdown = () => {
                           handleOpenNestedMenu(event, index, subIndex)
                         }
                         sx={{
-                     
+                          // paddingTop: "12px",
                           display: 'flex',
                           justifyContent: 'space-between',
                           '&:hover': {
@@ -195,6 +196,7 @@ const KanbarDropdown = () => {
                               sx={{
                                 fontSize: '14px',
                                 fontWeight: '400',
+                                // top: "20px",
                                 color: '#333',
                                 textTransform: 'capitalize',
                                 '&:hover': {

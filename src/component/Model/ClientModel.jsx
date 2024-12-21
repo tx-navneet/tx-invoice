@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../../assets/css/Model.css';
+import '../../../public/css/Model.css';
 import { MdClose, MdDelete } from 'react-icons/md';
 import { IoCheckmarkDoneCircleSharp } from 'react-icons/io5';
 import React from 'react';

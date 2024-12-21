@@ -11,12 +11,12 @@ const KanbarNavbar = () => {
             <a className="navbar-brand d-xl-flex d-none" href="index.html">
               <img
                 className="brand-img img-fluid"
-                src="public/img/brand-sm.svg"
+                src="/img/brand-sm.svg"
                 alt="brand"
               />
               <img
                 className="brand-img img-fluid"
-                src="public/img/Jampack.svg"
+                src="/img/Jampack.svg"
                 alt="brand"
               />
             </a>
@@ -193,7 +193,7 @@ const KanbarNavbar = () => {
                       <div className="media-head me-2">
                         <div className="avatar avatar-xs avatar-rounded">
                           <img
-                            src="public/img/avatar3.jpg"
+                            src="/img/avatar3.jpg"
                             alt="user"
                             className="avatar-img"
                           />
@@ -217,7 +217,7 @@ const KanbarNavbar = () => {
                       <div className="media-head me-2">
                         <div className="avatar avatar-xs avatar-rounded">
                           <img
-                            src="public/img/avatar4.jpg"
+                            src="/img/avatar4.jpg"
                             alt="user"
                             className="avatar-img"
                           />
@@ -275,7 +275,7 @@ const KanbarNavbar = () => {
                   >
                     <div className="avatar avatar-rounded avatar-xs">
                       <img
-                        src="public/img/avatar12.jpg"
+                        src="/img/avatar12.jpg"
                         alt="user"
                         className="avatar-img"
                       />
@@ -328,7 +328,7 @@ const KanbarNavbar = () => {
                                   <div className="media-head me-2">
                                     <div className="avatar avatar-xs avatar-rounded">
                                       <img
-                                        src="public/img/avatar12.jpg"
+                                        src="/img/avatar12.jpg"
                                         alt="user"
                                         className="avatar-img"
                                       />

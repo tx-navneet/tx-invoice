@@ -1,0 +1,56 @@
+/* Page container with gradient background */
+.page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to bottom right, #ff7e5f, #feb47b); /* Gradient background */
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  
+  /* Swiper container style */
+  .swiper-container {
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+  }
+  
+  /* Card styling with gradient and glassy effect */
+  .card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+    border-radius: 15px;
+    backdrop-filter: blur(10px); /* Glassy effect */
+    padding: 20px;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Hover effect for cards */
+  .card:hover {
+    transform: translateY(-10px); /* Slight lift on hover */
+  }
+  
+  /* Card content style */
+  .card-content {
+    text-align: center;
+  }
+  
+  /* Card title styles */
+  .card h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  .card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+  }
+  
+  .card p {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+  

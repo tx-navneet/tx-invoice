@@ -151,8 +151,8 @@ const InvoicePDF = () => {
                     </button>
                   </div>
                 </header>
-                <div className="invoice-body">
-                  <SimpleBar className="nicescroll-bar">
+                <div className="">
+                  <SimpleBar style={{ maxHeight: '80vh', overflowY: 'auto' }} >
                     <div className="container">
                       <div
                         id="invoice-content"

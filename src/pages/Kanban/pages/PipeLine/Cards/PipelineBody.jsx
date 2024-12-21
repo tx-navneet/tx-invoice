@@ -76,7 +76,7 @@ const PipelineBody = ({ cards }) => {
   return (
     <div
       // className=""
-      className="taskboard-body pt-6 overflow-x-auto conteriner-fluid bg-yellow-300 bg-opacity-20 backdrop-blur-md border border-yellow-300/30 rounded-lg p-6 shadow-lg h-[70vh]"
+      className="taskboard-body pt-6 overflow-x-auto conteriner-fluid bg-yellow-300 bg-opacity-20 backdrop-blur-md border border-yellow-300/30 rounded-lg p-6 shadow-lg "
       style={{
         height: '100vh',
         overflowY: 'auto',
@@ -85,7 +85,7 @@ const PipelineBody = ({ cards }) => {
     >
       <SimpleBar
         className="tasklist-scroll position-relative"
-        style={{ height: '89%', overflowY: 'auto' }}
+        style={{ height: '94%', overflowY: 'auto' }}
       >
         <div
           className="tasklist-wrap d-inline-flex "

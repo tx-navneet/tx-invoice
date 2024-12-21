@@ -35,7 +35,7 @@ export const ResponsiveProvider = ({ children }) => {
   const handleShowModel = () => {
     setShowModal(true);
     setFormData({
-      name: generateUniqueTaskName(), // Set a unique name when the modal opens
+      name: generateUniqueTaskName(), 
       startDate: '',
       endDate: '',
       description: '',

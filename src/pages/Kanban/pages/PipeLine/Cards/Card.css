@@ -37,8 +37,11 @@
     backdrop-filter: blur(10px); /* Blur effect */
     border-radius: 5px; /* Rounded corners */
     transition: background 0.3s ease; /* Smooth background transition */
+    color: black;
   }
   
   .glassy-button:hover {
     background: rgba(255, 255, 255, 0.2); /* Lighten on hover */
   }
+
+  

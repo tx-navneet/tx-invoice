@@ -1,8 +1,12 @@
 import React, { useContext } from 'react';
 import { Responsivecontext } from '../../../../context/HeaderContext';
+import { RxArrowLeft, RxArrowRight } from 'react-icons/rx';
 
 const Header = () => {
-  const { hanldeCloseSidebar, closeTaskbar,hanldeCloseTaskbar } = useContext(Responsivecontext);
+  const { hanldeCloseSidebar, closeTaskbar, hanldeCloseTaskbar } =
+    useContext(Responsivecontext);
+    console.log(closeTaskbar);
+    
   return (
     <>
       <header className="taskboard-header py-3">
@@ -166,10 +170,9 @@ const Header = () => {
             </a>
           </div>
         </div>
-        <div
-          className="hk-sidebar-togglable"
-          onClick={hanldeCloseSidebar}
-        ></div>
+        <div className="hk-sidebar-togglable" onClick={hanldeCloseSidebar}>
+          {closeTaskbar ? <RxArrowLeft /> : <RxArrowRight />}
+        </div>
       </header>
     </>
   );

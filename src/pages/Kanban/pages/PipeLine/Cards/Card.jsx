@@ -22,7 +22,7 @@ const Card = ({ card }) => {
 
   return (
     <div
-      className="card card-border spipeline-card"
+      className="card card-border spipeline-card "
       style={{ backgroundColor: bgColor }}
     >
       <div className="card-body">
@@ -41,7 +41,7 @@ const Card = ({ card }) => {
           {/* Card Details */}
           <div className="media-body">
             <div className="d-flex justify-between items-center">
-              <div className="brand-name fw-bold capitalize">
+              <div className="brand-name fw-bold capitalize text-black">
                 {card.brandName}
               </div>
               <div>
@@ -55,14 +55,14 @@ const Card = ({ card }) => {
                             <Menu.Item
                               key={name}
                               onSelect={() => handleColorChange(color)}
-                              className="menu-item"
+                              className="menu-item text-black"
                             >
                               <div className="div d-flex justify-between items-center">
                                 <div
-                                  className="color-swatch"
+                                  className="color-swatch text-black"
                                   style={{ backgroundColor: color }}
                                 ></div>
-                                <Text>{name}</Text>
+                                <Text className="text-black">{name}</Text>
                               </div>
                             </Menu.Item>
                           ))}
@@ -81,7 +81,7 @@ const Card = ({ card }) => {
                     }
                     appearance="primary"
                     size="small"
-                    className={`glassy-button p-2 rounded-full bg-[${selectedColor.color}]`} 
+                    className={`glassy-button p-2 rounded-full `} 
                     
                   >
                     {selectedColor.name}

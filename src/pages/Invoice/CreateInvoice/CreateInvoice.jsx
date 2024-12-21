@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import '../../../assets/css/style.css';
 import { useDropzone } from 'react-dropzone';
 import AddClientModal from '../../../component/Model/ClientModel';
 import ShipToForm from './ShipForm';
@@ -8,7 +7,11 @@ import React from 'react';
 import InvoiceSubTable from './components/Subtotel';
 import AddNote from './components/AddNote';
 import PersonalMemo from './components/Personalmemo';
-import '../../../assets/css/Model.css';
+// import '../../../assets/css/Model.css';
+import Navbar from '../../../component/Navbar/Navbar';
+import Header from '../../../component/Navbar/Header';
+import SimpleBar from 'simplebar-react';
+// import SimpleBar from 'simplebar-react';
 
 const CreateInvoice = () => {
   const [invoiceData, setInvoiceData] = useState({
@@ -61,37 +64,39 @@ const CreateInvoice = () => {
 
   return (
     <>
-      {/* <Navbar />
-      <Sidebar /> */}
+      <Navbar />
+      <Header />
 
-      <div className=" py-0">
-        <div className="invoiceapp-wrap invoiceapp-setting-active">
-          <div className="invoiceapp-content">
-            <div className="invoiceapp-detail-wrap">
-              <header className="invoice-header">
-                <div className="d-flex align-items-center">
-                  <a className="invoiceapp-title link-dark" href="#">
-                    <h1>Create Invoice</h1>
-                  </a>
-                </div>
-                <div className="invoice-options-wrap">
-                  {/* <a className="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover invoiceapp-setting-toggle active" href="#">
+      <div className="hk-wrapper pb-0">
+        <div className=" py-0">
+          <div className="invoiceapp-wrap invoiceapp-setting-active">
+            <div className="invoiceapp-content">
+              <div className="invoiceapp-detail-wrap">
+                <header className="invoice-header p-2 ">
+                  <div className="d-flex align-items-center pl-12">
+                    <a className="invoiceapp-title link-dark" href="#">
+                      <h1>Create Invoice</h1>
+                    </a>
+                  </div>
+                  <div className="invoice-options-wrap">
+                    {/* <a className="btn btn-icon btn-flush-dark btn-rounded flush-soft-hover invoiceapp-setting-toggle active" href="#">
 										<span className="icon">
 											<span className="feather-icon"><i data-feather="sliders"></i></span>
 										</span>
 									</a> */}
-                  {/* <a href="invoice-preview.html" className="btn btn-outline-secondary flex-shrink-0 d-md-inline-block d-none">Preview</a> */}
-                  <a
-                    href="#"
-                    className="btn btn-primary ms-2 w-[100px] d-sm-inline-block d-none"
-                  >
-                    save
-                  </a>
-                </div>
-              </header>
-              <div className="">
-                <div data-simplebar className="">
-                  <div className="container-fluid">
+                    {/* <a href="invoice-preview.html" className="btn btn-outline-secondary flex-shrink-0 d-md-inline-block d-none">Preview</a> */}
+                    <a
+                      href="#"
+                      className="btn btn-primary ms-2 w-[100px] d-sm-inline-block d-none"
+                    >
+                      save
+                    </a>
+                  </div>
+                </header>
+         
+
+                  <SimpleBar  style={{ maxHeight: '84vh', overflowY: 'auto' }} >
+
                     <div className="create-invoice-wrap mt-xxl-5 p-md-5">
                       <h1 className="editable text-center">Invoice</h1>
 
@@ -114,7 +119,7 @@ const CreateInvoice = () => {
                         </div>
                       </div>
 
-                      <div className="row mt-5">
+                      <div className="row mt-5 h-full overflow-auto">
                         <div className="col-xxl-3">
                           <a
                             className="d-inline-block mb-3 w-full  cursor-pointer"
@@ -320,15 +325,13 @@ const CreateInvoice = () => {
                         <PersonalMemo />
                       </div>
                     </div>
-                  </div>
-                </div>
+                  </SimpleBar>
+         
               </div>
             </div>
           </div>
         </div>
       </div>
-      {/* </div>
-      </div> */}
     </>
   );
 };

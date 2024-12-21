@@ -43,7 +43,7 @@ const Dashboard = () => {
 
           {/* Content Area */}
           <div className="taskboardapp-content">
-            <div className="taskboardapp-detail-wrap">
+            <div className="taskboardapp-detail-wrap ml-6">
               {/* Header Component */}
               <Header />
 
